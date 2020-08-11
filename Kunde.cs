@@ -1,15 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
+using Newtonsoft.Json;
+using System.IO;
+using System.IO.Enumeration;
 
 namespace AutoKauf
 {
     public class Kunde
     {
+        public string speicherdateikunde = "jsonlistekunde";
+
         private string name;
         private int alter;
         private string standort;
+        private Fahrzeug vermietetesauto;
+        private string email;
 
         public string Name
         {
@@ -29,46 +39,26 @@ namespace AutoKauf
             set { standort = value; }
         }
 
-        public List<Kunde> Kunden = new List<Kunde>();
-
-        public void speichern()
+        public Fahrzeug VermietetesAuto
         {
-            //Kunde 1 
-            Kunde kunde = new Kunde();
-
-            kunde.name = "Stefan";
-            kunde.alter = 24;
-
-            Kunden.Add(kunde);
-
-            //Kunde 2 
-            kunde = new Kunde();
-
-            kunde.name = "Dennis";
-            kunde.alter = 16;
-
-            Kunden.Add(kunde);
-
-            //Kunde 3
-            kunde = new Kunde();
-
-            kunde.name = "Max";
-            kunde.alter = 46;
-
-            Kunden.Add(kunde);
-
-            //Kunde 4
-            kunde = new Kunde();
-
-            kunde.name = "Lukas";
-            kunde.alter = 32;
-
-            Kunden.Add(kunde);
+            get { return vermietetesauto; }
+            set { vermietetesauto = value; }
         }
 
-        public void hinzufuegen()
+        public string EMail
+        {
+            get { return email; }
+            set { email = value; }
+        }
+        
+        public void NeuenKundenHinzufuegen(List<Kunde> Kunden)
         {
             Kunde kunde = new Kunde();
+
+            Console.WriteLine("Bitte geben sie ihre E-Mail Addresse ein: ");
+            string Email = Console.ReadLine();
+            Console.Clear();
+            kunde.email = Email;
 
             Console.Write("Bitte geben sie ihren Namen ein  ");
             string Name = Console.ReadLine();
@@ -92,7 +82,7 @@ namespace AutoKauf
             Console.Clear();
         }
 
-        public void DatenHinzufuegen(string name, int alter, string standort)
+        public void DatenHinzufuegen(string name, int alter, string standort, List<Kunde> Kunden)
         {
             Kunde kunde = new Kunde();
 
@@ -103,10 +93,10 @@ namespace AutoKauf
             Kunden.Add(kunde);
         }
 
-        public void auslesen()
+        public void KundenListeAuslesen(List<Kunde> kundenliste)
         {
             int counter = 1;
-            foreach (var item in Kunden)
+            foreach (var item in kundenliste)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Kunde {0}", counter);
@@ -114,13 +104,33 @@ namespace AutoKauf
                 Console.WriteLine("\n" + item.name);
                 Console.WriteLine(item.standort);
                 Console.WriteLine(item.alter);
-                Console.WriteLine("");
+                if (item.vermietetesauto == null)
+                {
+                    Console.WriteLine("Kunde hat kein ausgeliehenes Auto");
+                }
+                else
+                {
+                    Console.WriteLine("Ausgeliehenes Fahrzeug: ");
+                    item.VermietetesAuto.DetailsAnschauen();
+                }
 
                 counter++;
             }
 
             Console.ReadKey();
             Console.Clear();
+        }
+
+        public Kunde(string email, string name, int alter, string standort)
+        {
+            EMail = email;
+            Name = name;
+            Alter = alter;
+            Standort = standort;
+        }
+
+        public Kunde()
+        {
         }
     }
 }

@@ -80,11 +80,23 @@ namespace AutoKauf
 
         public virtual void Anzeigen(int counter)
         {
-            Console.WriteLine("Fahrzeug {0} ", counter);
-            Console.WriteLine("\nHersteller: " + Hersteller);
+            Console.WriteLine("\nFahrzeug {0} ", counter);
+            Console.WriteLine("Hersteller: " + Hersteller);
             Console.WriteLine("Preis " + Preis + "Euro");
             Console.WriteLine("Standort: " + Standort);
-            Console.WriteLine("Verfügbar " + Verfuegbar);
+            if (Verfuegbar == true)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Verfügbar: " + Verfuegbar);
+                Console.ForegroundColor = ConsoleColor.Gray;
+            }
+
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Verfügbar " + Verfuegbar);
+                Console.ForegroundColor = ConsoleColor.Gray;
+            }
         }
 
         public void DetailsAnschauen()
@@ -98,6 +110,11 @@ namespace AutoKauf
             Console.WriteLine("SitzPlätze: " + SitzPlaetze);
             Console.WriteLine("Räder: " + Raeder);
             Console.WriteLine("Verfügbar: " + Verfuegbar);
+
+            if (Verfuegbar == false)
+            {
+                Console.WriteLine("Kunde: " + Kundenname);
+            }
         }
     }
 }

@@ -17,8 +17,8 @@ namespace AutoKauf
 
         public override void Anzeigen(int counter)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Auto");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\nAuto");
             Console.ForegroundColor = ConsoleColor.Gray;
             base.Anzeigen(counter);
             Console.WriteLine("Anhängerkupplung: " + AnhängerKupplung);

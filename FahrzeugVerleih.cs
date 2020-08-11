@@ -13,12 +13,13 @@ namespace AutoKauf
 {
     public class FahrzeugVerleih
     {
+      
         const string speicherdatei = "jsonliste";
         const string speicherdateikunde = "jsonlistekunde";
         public List<Fahrzeug> FahrzeugListe = new List<Fahrzeug>();
         public List<Kunde> kundenliste = new List<Kunde>();
 
-        public void FahrzeugWaehlen()
+        public void FahrzeugAuswaehlen()
         {
             Console.WriteLine("Hier können sie wählen was sie leihen möchten ");
             Console.WriteLine("[1] Auto");
@@ -49,7 +50,7 @@ namespace AutoKauf
                     Console.Write("Wie lang möchten sie den Wagen ausleihen ");
                     int zeit = Convert.ToInt32(Console.ReadLine());
 
-                    kundespeicher();
+                    KundenListeUeberpruefen(FahrzeugListe.ElementAt(leihen - 1));
 
                     Console.WriteLine("Ihr Auto ist gemietet und bereit zur Abholung");
                     FahrzeugListe.ElementAt(leihen - 1).Verfuegbar = false;
@@ -116,18 +117,18 @@ namespace AutoKauf
                     cki = Console.ReadKey();
                     if (cki.KeyChar == 'j')
                     {
+                        Console.Clear();
                         Console.Write("Welches Auto wollen sie sich genauer anschauen ");
                         int autoAnschauen = Convert.ToInt32(Console.ReadLine());
 
                         fahrzeuge.ElementAt(autoAnschauen - 1).DetailsAnschauen();
+                        Console.ReadKey();
                     }
 
                     else
                     {
                     }
-                    Console.ReadKey();
                     fahrzeuge.Clear();
-
                     break;
 
                 case '2':
@@ -221,7 +222,7 @@ namespace AutoKauf
             Console.Clear();
         }
 
-        public void Fahrzeughinzufuegen()
+        public void FahrzeugHinzufuegenAbfrage()
         {
             Console.WriteLine("Hier können sie wählen was sie hinzufügen möchten ");
             Console.WriteLine("[1] Auto");
@@ -234,21 +235,21 @@ namespace AutoKauf
             if (cki.KeyChar == '1')
             {
                 Console.Clear();
-                FahrzeugListe.Add(hinzufuegenauto());
+                FahrzeugListe.Add(NeuesAUTOHinzufuegen());
             }
             else if (cki.KeyChar == '2')
             {
                 Console.Clear();
-                FahrzeugListe.Add(hinzufuegenLKW());
+                FahrzeugListe.Add(NeuenLKWHinzufuegen());
             }
             else if (cki.KeyChar == '3')
             {
                 Console.Clear();
-                FahrzeugListe.Add(hinzufuegenmotorrad());
+                FahrzeugListe.Add(NeuesMOTORRADHinzufuegen());
             }
         }
 
-        public Fahrzeug hinzufuegenauto()
+        public Fahrzeug NeuesAUTOHinzufuegen()
         {
             ConsoleKeyInfo cki;
             Auto fahrzeug = new Auto();
@@ -310,33 +311,30 @@ namespace AutoKauf
             Console.WriteLine("[5] Strom");
 
             cki = Console.ReadKey();
-            if (cki.KeyChar == '1')
+            switch (cki.KeyChar)
             {
-                fahrzeug.Kraftstoff = Energie.Benzin;
-            }
+                case '1':
+                    fahrzeug.Kraftstoff = Energie.Benzin;
+                    break;
 
-            else if (cki.KeyChar == '2')
-            {
-                fahrzeug.Kraftstoff = Energie.Diesel;
-            }
+                case '2':
+                    fahrzeug.Kraftstoff = Energie.Diesel;
+                    break;
 
-            else if (cki.KeyChar == '3')
-            {
-                fahrzeug.Kraftstoff = Energie.Wasserstoff;
-            }
+                case '3':
+                    fahrzeug.Kraftstoff = Energie.Wasserstoff;
+                    break;
 
-            else if (cki.KeyChar == '4')
-            {
-                fahrzeug.Kraftstoff = Energie.Erdgas;
-            }
+                case '4':
+                    fahrzeug.Kraftstoff = Energie.Erdgas;
+                    break;
 
-            else if (cki.KeyChar == '5')
-            {
-                fahrzeug.Kraftstoff = Energie.Strom;
-            }
+                case '5':
+                    fahrzeug.Kraftstoff = Energie.Strom;
+                    break;
 
-            else
-            {
+                default:
+                    break;
             }
 
             fahrzeug.Verfuegbar = true;
@@ -348,99 +346,7 @@ namespace AutoKauf
             return fahrzeug;
         }
 
-        public Fahrzeug hinzufuegenmotorrad()
-        {
-            ConsoleKeyInfo cki;
-            LKW fahrzeug = new LKW();
-
-            Console.WriteLine("Bitte geben sie den Standort des Fahrzeugs an  ");
-            string standort = Console.ReadLine();
-            Console.Clear();
-            fahrzeug.Standort = standort;
-
-            Console.WriteLine("Bitte geben sie den Hersteller des Fahrzeugs an  ");
-            string hersteller = Console.ReadLine();
-            Console.Clear();
-            fahrzeug.Hersteller = hersteller;
-
-            Console.WriteLine("Bitte geben sie die Leistung des Fahrzeugs an  ");
-            int leistung = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-            fahrzeug.Leistung = leistung;
-
-            Console.WriteLine("Bitte geben sie den Preis des Fahrzeugs an  ");
-            int preis = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-            fahrzeug.Preis = preis;
-
-            Console.WriteLine("Bitte geben sie das Bauhjahr des Fahrzeugs an  ");
-            int bauhjahr = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-            fahrzeug.Bauhjahr = bauhjahr;
-
-            Console.WriteLine("Bitte geben sie die Anzahl der Räder des Fahrzeugs an  ");
-            int raeder = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-            fahrzeug.Raeder = raeder;
-
-            Console.WriteLine("Bitte geben sie die Anzahl der SitzPlätze des Fahrzeugs an  ");
-            int sitzplaetze = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-            fahrzeug.SitzPlaetze = sitzplaetze;
-
-            Console.WriteLine("Bitte geben sie das Ladevolumen in cbm des Fahrzeugs an  ");
-            int ladevolumen = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-            fahrzeug.Ladevolumen = ladevolumen;
-
-            Console.WriteLine("Bitte geben sie an welchen Kraftstoff ihr Fahrzeug verwendet ");
-            Console.WriteLine("[1] Benzin");
-            Console.WriteLine("[2] Diesel");
-            Console.WriteLine("[3] Wasserstoff");
-            Console.WriteLine("[4] Erdgas");
-            Console.WriteLine("[5] Strom");
-
-            cki = Console.ReadKey();
-            if (cki.KeyChar == '1')
-            {
-                fahrzeug.Kraftstoff = Energie.Benzin;
-
-            }
-
-            else if (cki.KeyChar == '2')
-            {
-                fahrzeug.Kraftstoff = Energie.Diesel;
-            }
-
-            else if (cki.KeyChar == '3')
-            {
-                fahrzeug.Kraftstoff = Energie.Wasserstoff;
-            }
-
-            else if (cki.KeyChar == '4')
-            {
-                fahrzeug.Kraftstoff = Energie.Erdgas;
-            }
-
-            else if (cki.KeyChar == '5')
-            {
-                fahrzeug.Kraftstoff = Energie.Strom;
-            }
-
-            else
-            {
-            }
-
-            fahrzeug.Verfuegbar = true;
-
-            Console.Clear();
-            Console.WriteLine("Ihr Fahrzeug wurde gespeichert  ");
-            Thread.Sleep(3000);
-            Console.Clear();
-            return fahrzeug;
-        }
-
-        public Fahrzeug hinzufuegenLKW()
+        public Fahrzeug NeuenLKWHinzufuegen()
         {
             ConsoleKeyInfo cki;
             Motorrad fahrzeug = new Motorrad();
@@ -502,34 +408,31 @@ namespace AutoKauf
             Console.WriteLine("[5] Strom");
 
             cki = Console.ReadKey();
-            if (cki.KeyChar == '1')
-            {
-                fahrzeug.Kraftstoff = Energie.Benzin;
 
-            }
-
-            else if (cki.KeyChar == '2')
+            switch (cki.KeyChar)
             {
-                fahrzeug.Kraftstoff = Energie.Diesel;
-            }
+                case '1':
+                    fahrzeug.Kraftstoff = Energie.Benzin;
+                    break;
 
-            else if (cki.KeyChar == '3')
-            {
-                fahrzeug.Kraftstoff = Energie.Wasserstoff;
-            }
+                case '2':
+                    fahrzeug.Kraftstoff = Energie.Diesel;
+                    break;
 
-            else if (cki.KeyChar == '4')
-            {
-                fahrzeug.Kraftstoff = Energie.Erdgas;
-            }
+                case '3':
+                    fahrzeug.Kraftstoff = Energie.Wasserstoff;
+                    break;
 
-            else if (cki.KeyChar == '5')
-            {
-                fahrzeug.Kraftstoff = Energie.Strom;
-            }
+                case '4':
+                    fahrzeug.Kraftstoff = Energie.Erdgas;
+                    break;
 
-            else
-            {
+                case '5':
+                    fahrzeug.Kraftstoff = Energie.Strom;
+                    break;
+
+                default:
+                    break;
             }
 
             fahrzeug.Verfuegbar = true;
@@ -541,228 +444,97 @@ namespace AutoKauf
             return fahrzeug;
         }
 
-        public void speichern()
-        {
-            Fahrzeug fahrzeug = new Fahrzeug();
-            Auto fahrzeugAUTO = new Auto();
-            LKW fahrzeugLKW = new LKW();
-            Motorrad fahrzeugMOTORRAD = new Motorrad();
-            
-            //Auto 1
-            fahrzeugAUTO.Preis = 7500;
-            fahrzeugAUTO.Hersteller = "Audi";
-            fahrzeugAUTO.Raeder = 4;
-            fahrzeugAUTO.Kraftstoff = Energie.Benzin;
-            fahrzeugAUTO.Leistung = 170;
-            fahrzeugAUTO.SitzPlaetze = 5;
-            fahrzeugAUTO.Standort = "Stuttgart";
-            fahrzeugAUTO.Bauhjahr = 2012;
-            fahrzeugAUTO.AnhängerKupplung = true;
-            fahrzeugAUTO.Verfuegbar = false;
-
-            FahrzeugListe.Add(fahrzeugAUTO);
-
-            //Auto2 
-            fahrzeugAUTO = new Auto();
-            fahrzeugAUTO.Preis = 15000;
-            fahrzeugAUTO.Hersteller = "VW";
-            fahrzeugAUTO.Raeder = 4;
-            fahrzeugAUTO.Kraftstoff = Energie.Strom;
-            fahrzeugAUTO.Leistung = 150;
-            fahrzeugAUTO.SitzPlaetze = 4;
-            fahrzeugAUTO.Standort = "Berlin";
-            fahrzeugAUTO.Bauhjahr = 2019;
-            fahrzeugAUTO.AnhängerKupplung = false;
-            fahrzeugAUTO.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugAUTO);
-
-            //Auto3
-            fahrzeugAUTO = new Auto();
-            fahrzeugAUTO.Preis = 2350;
-            fahrzeugAUTO.Hersteller = "Mazda";
-            fahrzeugAUTO.Raeder = 4;
-            fahrzeugAUTO.Kraftstoff = Energie.Benzin;
-            fahrzeugAUTO.Leistung = 250;
-            fahrzeugAUTO.SitzPlaetze = 2;
-            fahrzeugAUTO.Standort = "Hamburg";
-            fahrzeugAUTO.Bauhjahr = 2008;
-            fahrzeugAUTO.AnhängerKupplung = true;
-            fahrzeugAUTO.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugAUTO);
-
-            //Auto4
-            fahrzeugAUTO = new Auto();
-            fahrzeugAUTO.Preis = 22500;
-            fahrzeugAUTO.Hersteller = "Mercedes";
-            fahrzeugAUTO.Raeder = 4;
-            fahrzeugAUTO.Kraftstoff = Energie.Wasserstoff;
-            fahrzeugAUTO.Leistung = 340;
-            fahrzeugAUTO.SitzPlaetze = 5;
-            fahrzeugAUTO.Standort = "Köln";
-            fahrzeugAUTO.Bauhjahr = 2016;
-            fahrzeugAUTO.AnhängerKupplung = false;
-            fahrzeugAUTO.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugAUTO);
-
-            //Auto5
-            fahrzeugAUTO = new Auto();
-            fahrzeugAUTO.Preis = 17800;
-            fahrzeugAUTO.Hersteller = "BMW";
-            fahrzeugAUTO.Raeder = 4;
-            fahrzeugAUTO.Kraftstoff = Energie.Erdgas;
-            fahrzeugAUTO.Leistung = 250;
-            fahrzeugAUTO.SitzPlaetze = 4;
-            fahrzeugAUTO.Standort = "Nürnberg";
-            fahrzeugAUTO.Bauhjahr = 2019;
-            fahrzeugAUTO.AnhängerKupplung = true;
-            fahrzeugAUTO.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugAUTO);
-
-            //LKW1
-            fahrzeugLKW = new LKW();
-            fahrzeugLKW.Preis = 53000;
-            fahrzeugLKW.Hersteller = "Scania";
-            fahrzeugLKW.Raeder = 6;
-            fahrzeugLKW.Kraftstoff = Energie.Benzin;
-            fahrzeugLKW.Leistung = 520;
-            fahrzeugLKW.SitzPlaetze = 2;
-            fahrzeugLKW.Standort = "Berlin";
-            fahrzeugLKW.Bauhjahr = 2018;
-            fahrzeugLKW.Ladevolumen = 23;
-            fahrzeugLKW.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugLKW);
-
-            //LKW2
-            fahrzeugLKW = new LKW();
-            fahrzeugLKW.Preis = 43290;
-            fahrzeugLKW.Hersteller = "MAN";
-            fahrzeugLKW.Raeder = 8;
-            fahrzeugLKW.Kraftstoff = Energie.LKWDiesel;
-            fahrzeugLKW.Leistung = 430;
-            fahrzeugLKW.SitzPlaetze = 2;
-            fahrzeugLKW.Standort = "Stuttgart";
-            fahrzeugLKW.Bauhjahr = 2012;
-            fahrzeugLKW.Ladevolumen = 16;
-            fahrzeugLKW.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugLKW);
-
-            //LKW3
-            fahrzeugLKW = new LKW();
-            fahrzeugLKW.Preis = 63000;
-            fahrzeugLKW.Hersteller = "Mercedes";
-            fahrzeugLKW.Raeder = 6;
-            fahrzeugLKW.Kraftstoff = Energie.LKWDiesel;
-            fahrzeugLKW.Leistung = 600;
-            fahrzeugLKW.SitzPlaetze = 2;
-            fahrzeugLKW.Standort = "München";
-            fahrzeugLKW.Bauhjahr = 2020;
-            fahrzeugLKW.Ladevolumen = 34;
-            fahrzeugLKW.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugLKW);
-
-            //LKW4
-            fahrzeugLKW = new LKW();
-            fahrzeugLKW.Preis = 32500;
-            fahrzeugLKW.Hersteller = "Volvo";
-            fahrzeugLKW.Raeder = 6;
-            fahrzeugLKW.Kraftstoff = Energie.Erdgas;
-            fahrzeugLKW.Leistung = 420;
-            fahrzeugLKW.SitzPlaetze = 2;
-            fahrzeugLKW.Standort = "Bremen";
-            fahrzeugLKW.Bauhjahr = 2018;
-            fahrzeugLKW.Ladevolumen = 30;
-            fahrzeugLKW.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugLKW);
-
-            //Motorrad 1
-            fahrzeugMOTORRAD = new Motorrad();
-            fahrzeugMOTORRAD.Preis = 30000;
-            fahrzeugMOTORRAD.Hersteller = "Ducati";
-            fahrzeugMOTORRAD.Raeder = 2;
-            fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
-            fahrzeugMOTORRAD.Leistung = 210;
-            fahrzeugMOTORRAD.SitzPlaetze = 2;
-            fahrzeugMOTORRAD.Standort = "Dortmund";
-            fahrzeugMOTORRAD.Bauhjahr = 2019;
-            fahrzeugMOTORRAD.Seitenwagen = false;
-            fahrzeugMOTORRAD.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugMOTORRAD);
-
-            //Motorrad 2
-            fahrzeugMOTORRAD = new Motorrad();
-            fahrzeugMOTORRAD.Preis = 12000;
-            fahrzeugMOTORRAD.Hersteller = "Kawasaki";
-            fahrzeugMOTORRAD.Raeder = 2;
-            fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
-            fahrzeugMOTORRAD.Leistung = 170;
-            fahrzeugMOTORRAD.SitzPlaetze = 2;
-            fahrzeugMOTORRAD.Standort = "Stuttgart";
-            fahrzeugMOTORRAD.Bauhjahr = 2016;
-            fahrzeugMOTORRAD.Seitenwagen = false;
-            fahrzeugMOTORRAD.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugMOTORRAD);
-
-            //Motorrad 3
-            fahrzeugMOTORRAD = new Motorrad();
-            fahrzeugMOTORRAD.Preis = 30000;
-            fahrzeugMOTORRAD.Hersteller = "Ducati";
-            fahrzeugMOTORRAD.Raeder = 2;
-            fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
-            fahrzeugMOTORRAD.Leistung = 210;
-            fahrzeugMOTORRAD.SitzPlaetze = 2;
-            fahrzeugMOTORRAD.Standort = "München";
-            fahrzeugMOTORRAD.Bauhjahr = 2019;
-            fahrzeugMOTORRAD.Seitenwagen = false;
-            fahrzeugMOTORRAD.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugMOTORRAD);
-
-            //Motorrad 4
-            fahrzeugMOTORRAD = new Motorrad();
-            fahrzeugMOTORRAD.Preis = 3750;
-            fahrzeugMOTORRAD.Hersteller = "KTM";
-            fahrzeugMOTORRAD.Raeder = 2;
-            fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
-            fahrzeugMOTORRAD.Leistung = 15;
-            fahrzeugMOTORRAD.SitzPlaetze = 2;
-            fahrzeugMOTORRAD.Standort = "Berlin";
-            fahrzeugMOTORRAD.Bauhjahr = 2019;
-            fahrzeugMOTORRAD.Seitenwagen = false;
-            fahrzeugMOTORRAD.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugMOTORRAD);
-
-            //Motorrad 5
-            fahrzeugMOTORRAD = new Motorrad();
-            fahrzeugMOTORRAD.Preis = 14300;
-            fahrzeugMOTORRAD.Hersteller = "Ural";
-            fahrzeugMOTORRAD.Raeder = 2;
-            fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
-            fahrzeugMOTORRAD.Leistung = 80;
-            fahrzeugMOTORRAD.SitzPlaetze = 2;
-            fahrzeugMOTORRAD.Standort = "Berlin";
-            fahrzeugMOTORRAD.Bauhjahr = 2012;
-            fahrzeugMOTORRAD.Seitenwagen = true;
-            fahrzeugMOTORRAD.Verfuegbar = true;
-
-            FahrzeugListe.Add(fahrzeugMOTORRAD);
-        }
-
-        public void kundespeicher()
+        public Fahrzeug NeuesMOTORRADHinzufuegen()
         {
             ConsoleKeyInfo cki;
-            Fahrzeug fahrzeug = new Fahrzeug();
+            LKW fahrzeug = new LKW();
 
+            Console.WriteLine("Bitte geben sie den Standort des Fahrzeugs an  ");
+            string standort = Console.ReadLine();
+            Console.Clear();
+            fahrzeug.Standort = standort;
+
+            Console.WriteLine("Bitte geben sie den Hersteller des Fahrzeugs an  ");
+            string hersteller = Console.ReadLine();
+            Console.Clear();
+            fahrzeug.Hersteller = hersteller;
+
+            Console.WriteLine("Bitte geben sie die Leistung des Fahrzeugs an  ");
+            int leistung = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            fahrzeug.Leistung = leistung;
+
+            Console.WriteLine("Bitte geben sie den Preis des Fahrzeugs an  ");
+            int preis = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            fahrzeug.Preis = preis;
+
+            Console.WriteLine("Bitte geben sie das Bauhjahr des Fahrzeugs an  ");
+            int bauhjahr = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            fahrzeug.Bauhjahr = bauhjahr;
+
+            Console.WriteLine("Bitte geben sie die Anzahl der Räder des Fahrzeugs an  ");
+            int raeder = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            fahrzeug.Raeder = raeder;
+
+            Console.WriteLine("Bitte geben sie die Anzahl der SitzPlätze des Fahrzeugs an  ");
+            int sitzplaetze = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            fahrzeug.SitzPlaetze = sitzplaetze;
+
+            Console.WriteLine("Bitte geben sie das Ladevolumen in cbm des Fahrzeugs an  ");
+            int ladevolumen = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            fahrzeug.Ladevolumen = ladevolumen;
+
+            Console.WriteLine("Bitte geben sie an welchen Kraftstoff ihr Fahrzeug verwendet ");
+            Console.WriteLine("[1] Benzin");
+            Console.WriteLine("[2] Diesel");
+            Console.WriteLine("[3] Wasserstoff");
+            Console.WriteLine("[4] Erdgas");
+            Console.WriteLine("[5] Strom");
+
+            cki = Console.ReadKey();
+            switch (cki.KeyChar)
+            {
+                case '1':
+                    fahrzeug.Kraftstoff = Energie.Benzin;
+                    break;
+
+                case '2':
+                    fahrzeug.Kraftstoff = Energie.Diesel;
+                    break;
+
+                case '3':
+                    fahrzeug.Kraftstoff = Energie.Wasserstoff;
+                    break;
+
+                case '4':
+                    fahrzeug.Kraftstoff = Energie.Erdgas;
+                    break;
+
+                case '5':
+                    fahrzeug.Kraftstoff = Energie.Strom;
+                    break;
+
+                default:
+                    break;
+            }
+
+            fahrzeug.Verfuegbar = true;
+
+            Console.Clear();
+            Console.WriteLine("Ihr Fahrzeug wurde gespeichert  ");
+            Thread.Sleep(3000);
+            Console.Clear();
+            return fahrzeug;
+        }
+                        
+        public void KundenListeUeberpruefen(Fahrzeug fahrzeug)
+        {
+            ConsoleKeyInfo cki;
             Kunde kunde = new Kunde();
 
             Console.WriteLine("haben sie bereits ein KundenKonto? [j] [n]");
@@ -771,9 +543,11 @@ namespace AutoKauf
 
             if (cki.KeyChar == 'j')
             {
-                kunde.Kunden = kundenliste;
+                Console.WriteLine("Bitte geben sie ihre EMail Addresse ein ");
+                string email = Console.ReadLine();
+                Console.Clear();
 
-                Console.Write("Bitte geben sie ihren Namen ein  ");
+                /*Console.Write("Bitte geben sie ihren Namen ein  ");
                 string Name = Console.ReadLine();
                 Console.Clear();
 
@@ -783,33 +557,38 @@ namespace AutoKauf
 
                 Console.Write("Bitte geben sie ihren Standort ein  ");
                 string Standort = Console.ReadLine();
+                Console.Clear();*/
+
+                foreach (var item in kundenliste)
+                {
+                    if (email == item.EMail)
+                    {
+                        Console.WriteLine("Ihre Email-Addresse ist in unserem System ");
+                        fahrzeug.Kundenname = item.Name;
+                        fahrzeug.Verfuegbar = false;
+
+                        item.VermietetesAuto = fahrzeug;
+                        return;
+                    }
+                }
+
+                Console.WriteLine("Ihre Email-Addresse ist nicht in unserem System");
+                Console.WriteLine("Möchten sie sich ein Kundenkonto erstellen? [j] [n]");
+
+                cki = Console.ReadKey();
+
                 Console.Clear();
 
-                if (Standort == kunde.Standort && Name == kunde.Name && Alter == kunde.Alter)
+                if (cki.KeyChar == 'j')
                 {
-                    Console.WriteLine("Ihre Daten stimmen übereinander. ");
+                    kunde.NeuenKundenHinzufuegen(kundenliste);
                     fahrzeug.Kundenname = kunde.Name;
                     fahrzeug.Verfuegbar = false;
                 }
                 else
                 {
-                    Console.WriteLine("Ihre Daten sind nicht in dem System");
-                    Console.WriteLine("Möchten sie sich ein Kundenkonto erstellen mit diesen Daten? [j] [n]");
-
-                    cki = Console.ReadKey();
-
-                    if (cki.KeyChar == 'j')
-                    { 
-                        kundenliste.Add(new Kunde { Name = Name, Alter = Alter, Standort = Standort});
-                        fahrzeug.Kundenname = Name;
-                        fahrzeug.Verfuegbar = false;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Sie können kein Auto ohne Konto erstellen ");
-                        Thread.Sleep(3000);
-                        kundespeicher();
-                    }
+                    Console.WriteLine("Sie können kein Auto ohne Konto leihen ");
+                    Thread.Sleep(3000);
                 }
             }
 
@@ -820,7 +599,7 @@ namespace AutoKauf
 
                 if (cki.KeyChar == 'j')
                 {
-                    kunde.hinzufuegen();
+                    kunde.NeuenKundenHinzufuegen(kundenliste);
                     fahrzeug.Kundenname = kunde.Name;
                     fahrzeug.Verfuegbar = false;
                 }
@@ -830,7 +609,7 @@ namespace AutoKauf
             }
         }
 
-        public void JsonSpeichern()
+        public void AutoInJSONListeSpeichern()
         {
             string jsonstring;
             jsonstring = JsonConvert.SerializeObject(FahrzeugListe, Formatting.Indented, new JsonSerializerSettings
@@ -841,7 +620,7 @@ namespace AutoKauf
             File.WriteAllText(speicherdatei ,jsonstring);
         }
 
-        public void JsonLaden() 
+        public void AutoAusJSONListeLaden() 
         {
             string jsonstring;
             jsonstring = File.ReadAllText(speicherdatei);
@@ -851,7 +630,7 @@ namespace AutoKauf
             }));
         }
 
-        public void JsonSpeichernKunde()
+        public void KundeInJSONListeSpeichern()
         {
             string jsonstring;
             jsonstring = JsonConvert.SerializeObject(kundenliste, Formatting.Indented, new JsonSerializerSettings
@@ -862,7 +641,7 @@ namespace AutoKauf
             File.WriteAllText(speicherdateikunde, jsonstring);
         }
 
-        public void JsonLadenKunde()
+        public void KundeAusJSONListeLaden()
         {
             string jsonstring;
             jsonstring = File.ReadAllText(speicherdateikunde);
@@ -870,6 +649,13 @@ namespace AutoKauf
             {
                 TypeNameHandling = TypeNameHandling.Auto
             })); 
+        }
+
+        public void listespeicher()
+        {
+            DatenSpeichern speicher = new DatenSpeichern();
+
+            speicher.KundenListeSpeichern(kundenliste);
         }
     }
 }

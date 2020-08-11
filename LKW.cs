@@ -16,7 +16,7 @@ namespace AutoKauf
 
         public override void Anzeigen(int counter)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("\nLKW ");
             Console.ForegroundColor = ConsoleColor.Gray;
             base.Anzeigen(counter);

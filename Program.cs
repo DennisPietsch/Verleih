@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace AutoKauf
@@ -9,11 +10,13 @@ namespace AutoKauf
         {
             FahrzeugVerleih verleih = new FahrzeugVerleih();
             Kunde kunde = new Kunde();
-            ConsoleKeyInfo cki;
-            verleih.speichern();
-            kunde.speichern();
-            
 
+            ConsoleKeyInfo cki;
+
+            verleih.AutoAusJSONListeLaden();
+            verleih.KundeAusJSONListeLaden();
+
+            verleih.listespeicher();
             do
             {
                 Console.WriteLine("Was möchten sie machen?");
@@ -36,7 +39,7 @@ namespace AutoKauf
 
                     case ConsoleKey.D2:
                     case ConsoleKey.NumPad2:
-                        verleih.Fahrzeughinzufuegen();
+                        verleih.FahrzeugHinzufuegenAbfrage();
                         break;
 
                     case ConsoleKey.D3:
@@ -46,16 +49,17 @@ namespace AutoKauf
 
                     case ConsoleKey.D4:
                     case ConsoleKey.NumPad4:
-                        kunde.hinzufuegen();
+                        kunde.NeuenKundenHinzufuegen(verleih.kundenliste);
                         break;
 
                     case ConsoleKey.D5:
                     case ConsoleKey.NumPad5:
-                        kunde.auslesen();
+                        kunde.KundenListeAuslesen(verleih.kundenliste);
                         break;
 
                     case ConsoleKey.Escape:
-                        verleih.JsonSpeichern();
+                        verleih.AutoInJSONListeSpeichern();
+                        verleih.KundeInJSONListeSpeichern();
                         Environment.Exit(0);
                         break; 
 
