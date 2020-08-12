@@ -17,6 +17,9 @@ namespace AutoKauf
         private Energie kraftstoff;
         private bool verfuegbar;
         private string kundenname;
+        private int ausgeliehenBIS;
+        private DateTime ausgeliehenUM;
+        private int wiederVerfuegbar;
 
         public int SitzPlaetze
         {
@@ -78,8 +81,26 @@ namespace AutoKauf
             set { kundenname = value; }
         }
 
-        public virtual void Anzeigen(int counter)
+        public DateTime AusgeliehenUM
         {
+            get { return ausgeliehenUM; }
+            set { ausgeliehenUM = value; }
+        }
+
+        public int AusgeliehenBIS
+        {
+            get { return ausgeliehenBIS; }
+            set { ausgeliehenBIS = value; }
+        }
+
+        public int WiederVerfuegbar
+        {
+            get { return wiederVerfuegbar; }
+            set { wiederVerfuegbar = value; }
+        }
+
+        public virtual void Anzeigen(int counter)
+        {  
             Console.WriteLine("\nFahrzeug {0} ", counter);
             Console.WriteLine("Hersteller: " + Hersteller);
             Console.WriteLine("Preis " + Preis + "Euro");
@@ -95,6 +116,7 @@ namespace AutoKauf
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Verfügbar " + Verfuegbar);
+                Console.WriteLine("Verfügbar in " + AusgeliehenBIS);
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
         }
@@ -113,7 +135,18 @@ namespace AutoKauf
 
             if (Verfuegbar == false)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Kunde: " + Kundenname);
+                Console.ForegroundColor = ConsoleColor.Gray;
+            }
+        }
+
+        public void wiederverfuegbar()
+        {
+            if (AusgeliehenUM.AddMinutes(AusgeliehenBIS) <= DateTime.Now)
+            {
+                Verfuegbar = true;
+                kundenname = null;
             }
         }
     }

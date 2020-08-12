@@ -1,0 +1,50 @@
+[
+  {
+    "speicherdateikunde": "jsonlistekunde",
+    "Name": "Stefan",
+    "Alter": 29,
+    "Standort": "Heubach",
+    "VermietetesAuto": null,
+    "EMail": "Stefan.Test@gmail.com"
+  },
+  {
+    "speicherdateikunde": "jsonlistekunde",
+    "Name": "Max",
+    "Alter": 44,
+    "Standort": "Düsseldorf",
+    "VermietetesAuto": null,
+    "EMail": "Max.Mustermann@gmx.de"
+  },
+  {
+    "speicherdateikunde": "jsonlistekunde",
+    "Name": "Thoams",
+    "Alter": 32,
+    "Standort": "Stuttgart",
+    "VermietetesAuto": null,
+    "EMail": "ThomasFriedlich1982@email.com"
+  },
+  {
+    "speicherdateikunde": "jsonlistekunde",
+    "Name": "Dennis",
+    "Alter": 19,
+    "Standort": "Stuttgart",
+    "VermietetesAuto": {
+      "$type": "AutoKauf.Auto, AutoKauf",
+      "AnhängerKupplung": true,
+      "SitzPlaetze": 5,
+      "Raeder": 4,
+      "Leistung": 170,
+      "Bauhjahr": 2012,
+      "Preis": 7500,
+      "Standort": "Stuttgart",
+      "Hersteller": "Audi",
+      "Kraftstoff": 1,
+      "Verfuegbar": false,
+      "Kundenname": "Dennis",
+      "AusgeliehenUM": "2020-08-12T14:12:48.140102+02:00",
+      "AusgeliehenBIS": 1,
+      "WiederVerfuegbar": 0
+    },
+    "EMail": "dennis@aalen.com"
+  }
+]

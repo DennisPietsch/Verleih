@@ -13,7 +13,9 @@ namespace AutoKauf
 {
     public class FahrzeugVerleih
     {
-      
+        public static int zeit;
+
+        DateTime dateTime = DateTime.Now;
         const string speicherdatei = "jsonliste";
         const string speicherdateikunde = "jsonlistekunde";
         public List<Fahrzeug> FahrzeugListe = new List<Fahrzeug>();
@@ -31,9 +33,6 @@ namespace AutoKauf
         {
             Console.Clear();
             ConsoleKeyInfo cki;
-            Fahrzeug fahrzeug = new Fahrzeug();
-
-            Kunde kunde = new Kunde();
 
             Console.WriteLine("Wollen sie ein Fahrzeug leihen? [j] [n]");
             cki = Console.ReadKey();
@@ -48,12 +47,14 @@ namespace AutoKauf
                     FahrzeugListe.ElementAt(leihen - 1).Anzeigen(leihen);
 
                     Console.Write("Wie lang möchten sie den Wagen ausleihen ");
-                    int zeit = Convert.ToInt32(Console.ReadLine());
+                    zeit = Convert.ToInt32(Console.ReadLine());
 
                     KundenListeUeberpruefen(FahrzeugListe.ElementAt(leihen - 1));
 
                     Console.WriteLine("Ihr Auto ist gemietet und bereit zur Abholung");
                     FahrzeugListe.ElementAt(leihen - 1).Verfuegbar = false;
+                    FahrzeugListe.ElementAt(leihen - 1).AusgeliehenUM = dateTime;
+                    FahrzeugListe.ElementAt(leihen - 1).AusgeliehenBIS = zeit;
                     Thread.Sleep(5000);
                     Console.Clear();
                 }
@@ -72,6 +73,7 @@ namespace AutoKauf
             else
             {
                 Console.Clear();
+                return;
             }
         }
 
@@ -153,7 +155,8 @@ namespace AutoKauf
                     cki = Console.ReadKey();
                     if (cki.KeyChar == 'j')
                     {
-                        Console.Write("Welches Auto wollen sie sich genauer anschauen ");
+                        Console.Clear();
+                        Console.Write("Welchen LKW wollen sie sich genauer anschauen ");
                         int autoAnschauen = Convert.ToInt32(Console.ReadLine());
 
                         fahrzeuge.ElementAt(autoAnschauen - 1).DetailsAnschauen();
@@ -189,7 +192,8 @@ namespace AutoKauf
                     cki = Console.ReadKey();
                     if (cki.KeyChar == 'j')
                     {
-                        Console.Write("Welches Auto wollen sie sich genauer anschauen ");
+                        Console.Clear();
+                        Console.Write("Welches Motorrad wollen sie sich genauer anschauen ");
                         int autoAnschauen = Convert.ToInt32(Console.ReadLine());
 
                         fahrzeuge.ElementAt(autoAnschauen - 1).DetailsAnschauen();
@@ -542,7 +546,7 @@ namespace AutoKauf
             Console.Clear();
 
             if (cki.KeyChar == 'j')
-            {
+            { 
                 Console.WriteLine("Bitte geben sie ihre EMail Addresse ein ");
                 string email = Console.ReadLine();
                 Console.Clear();
@@ -581,7 +585,7 @@ namespace AutoKauf
 
                 if (cki.KeyChar == 'j')
                 {
-                    kunde.NeuenKundenHinzufuegen(kundenliste);
+                    kundenliste.Add(kunde.NeuenKundenHinzufuegen());
                     fahrzeug.Kundenname = kunde.Name;
                     fahrzeug.Verfuegbar = false;
                 }
@@ -594,12 +598,13 @@ namespace AutoKauf
 
             else
             {
+                Console.Clear();
                 Console.WriteLine("Möchten sie sich ein Kundenkonto erstellen? [j] [n]");
                 cki = Console.ReadKey();
-
+                Console.Clear();
                 if (cki.KeyChar == 'j')
                 {
-                    kunde.NeuenKundenHinzufuegen(kundenliste);
+                    kundenliste.Add(kunde.NeuenKundenHinzufuegen());
                     fahrzeug.Kundenname = kunde.Name;
                     fahrzeug.Verfuegbar = false;
                 }
@@ -650,5 +655,6 @@ namespace AutoKauf
                 TypeNameHandling = TypeNameHandling.Auto
             })); 
         }
+
     }
 }

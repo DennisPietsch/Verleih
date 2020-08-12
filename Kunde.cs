@@ -51,35 +51,30 @@ namespace AutoKauf
             set { email = value; }
         }
         
-        public void NeuenKundenHinzufuegen(List<Kunde> Kunden)
+        public Kunde NeuenKundenHinzufuegen()
         {
             Kunde kunde = new Kunde();
 
             Console.WriteLine("Bitte geben sie ihre E-Mail Addresse ein: ");
-            string Email = Console.ReadLine();
+            kunde.email = Console.ReadLine();
             Console.Clear();
-            kunde.email = Email;
-
+            
             Console.Write("Bitte geben sie ihren Namen ein  ");
-            string Name = Console.ReadLine();
+            kunde.name = Console.ReadLine();
             Console.Clear();
-            kunde.name = Name;
 
             Console.Write("Bitte geben sie ihr Alter ein  ");
-            int Alter = Convert.ToInt32(Console.ReadLine());
+            kunde.alter = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
-            kunde.alter = Alter;
 
             Console.Write("Bitte geben sie ihren Standort ein  ");
-            string Standort = Console.ReadLine();
+            kunde.standort = Console.ReadLine();
             Console.Clear();
-            kunde.standort = Standort;
-
-            Kunden.Add(kunde);
 
             Console.WriteLine("Ihre Daten wurden gespeichert");
             Thread.Sleep(3000);
             Console.Clear();
+            return kunde;
         }
 
         public void DatenHinzufuegen(string name, int alter, string standort, List<Kunde> Kunden)
@@ -98,7 +93,7 @@ namespace AutoKauf
             int counter = 1;
             foreach (var item in kundenliste)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Kunde {0}", counter);
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("\n" + item.name);
@@ -106,11 +101,15 @@ namespace AutoKauf
                 Console.WriteLine(item.alter);
                 if (item.vermietetesauto == null)
                 {
-                    Console.WriteLine("Kunde hat kein ausgeliehenes Auto");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Kunde hat kein ausgeliehenes Fahrzeug");
+                    Console.ForegroundColor = ConsoleColor.Gray;
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Ausgeliehenes Fahrzeug: ");
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     item.VermietetesAuto.DetailsAnschauen();
                 }
 

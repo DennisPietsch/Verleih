@@ -71,7 +71,7 @@ namespace AutoKauf
 
                     case ConsoleKey.D4:
                     case ConsoleKey.NumPad4:
-                        kunde.NeuenKundenHinzufuegen(verleih.kundenliste);
+                        verleih.kundenliste.Add(kunde.NeuenKundenHinzufuegen());
                         break;
 
                     case ConsoleKey.D5:
