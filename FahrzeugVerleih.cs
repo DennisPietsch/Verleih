@@ -650,12 +650,5 @@ namespace AutoKauf
                 TypeNameHandling = TypeNameHandling.Auto
             })); 
         }
-
-        public void listespeicher()
-        {
-            DatenSpeichern speicher = new DatenSpeichern();
-
-            speicher.KundenListeSpeichern(kundenliste);
-        }
     }
 }

@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 
 namespace AutoKauf
 {
     public class Program
     {
+        const string speicherdatei = "jsonliste";
+        const string speicherdateikunde = "jsonlistekunde";
+
         public static void Main(string[] args)
         {
             FahrzeugVerleih verleih = new FahrzeugVerleih();
@@ -13,10 +17,28 @@ namespace AutoKauf
 
             ConsoleKeyInfo cki;
 
-            verleih.AutoAusJSONListeLaden();
-            verleih.KundeAusJSONListeLaden();
+            if (File.Exists(speicherdatei))
+            {
+                verleih.AutoAusJSONListeLaden();
+            }
 
-            verleih.listespeicher();
+            else
+            {
+                verleih.FahrzeugListe.AddRange(DemoDatenSaetze.Fahrzeuge());
+            }
+
+            if (File.Exists(speicherdateikunde))
+            {
+                verleih.KundeAusJSONListeLaden();
+            }
+
+            else
+            {
+                verleih.kundenliste.AddRange(DemoDatenSaetze.Kunden());
+            }
+
+            //verleih.kundenliste.AddRange(DatenSpeichern.KundenListeSpeichern());
+
             do
             {
                 Console.WriteLine("Was möchten sie machen?");

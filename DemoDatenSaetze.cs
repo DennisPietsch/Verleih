@@ -4,14 +4,15 @@ using System.Text;
 
 namespace AutoKauf
 {
-    class DatenSpeichern
+    class DemoDatenSaetze
     {
-        public void Speichern(List<Fahrzeug> FahrzeugListe)
+        public static List<Fahrzeug> Fahrzeuge()
         {
-            Fahrzeug fahrzeug = new Fahrzeug();
             Auto fahrzeugAUTO = new Auto();
             LKW fahrzeugLKW = new LKW();
             Motorrad fahrzeugMOTORRAD = new Motorrad();
+
+            List<Fahrzeug> FahrzeugListe = new List<Fahrzeug>();
 
             //Auto 1
             fahrzeugAUTO.Preis = 7500;
@@ -222,13 +223,19 @@ namespace AutoKauf
             fahrzeugMOTORRAD.Verfuegbar = true;
 
             FahrzeugListe.Add(fahrzeugMOTORRAD);
+
+            return FahrzeugListe;
         }
 
-        public void KundenListeSpeichern(List<Kunde> kundenliste)
+        public static List<Kunde> Kunden()
         {
-            kundenliste.Add(new Kunde("Stefan.Test@gmail.com", "Stefan", 29, "Heubach"));
-            kundenliste.Add(new Kunde("Max.Mustermann@gmx.de", "Max", 44, "Düsseldorf"));
-            kundenliste.Add(new Kunde("ThomasFriedlich1982@email.com", "Thoams", 32, "Stuttgart"));
+            List<Kunde> KundenListe = new List<Kunde>(); 
+
+            KundenListe.Add(new Kunde("Stefan.Test@gmail.com", "Stefan", 29, "Heubach"));
+            KundenListe.Add(new Kunde("Max.Mustermann@gmx.de", "Max", 44, "Düsseldorf"));
+            KundenListe.Add(new Kunde("ThomasFriedlich1982@email.com", "Thoams", 32, "Stuttgart"));
+
+            return KundenListe;
         }
     }
 }
