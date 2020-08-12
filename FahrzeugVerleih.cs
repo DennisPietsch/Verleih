@@ -593,6 +593,7 @@ namespace AutoKauf
                 {
                     Console.WriteLine("Sie können kein Auto ohne Konto leihen ");
                     Thread.Sleep(3000);
+                    
                 }
             }
 
@@ -610,6 +611,9 @@ namespace AutoKauf
                 }
                 else
                 {
+                    Console.WriteLine("Sie können kein Auto ohne Konto leihen ");
+                    Thread.Sleep(3000);
+
                 }
             }
         }
@@ -655,6 +659,5 @@ namespace AutoKauf
                 TypeNameHandling = TypeNameHandling.Auto
             })); 
         }
-
     }
 }

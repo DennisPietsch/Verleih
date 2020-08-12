@@ -100,7 +100,8 @@ namespace AutoKauf
         }
 
         public virtual void Anzeigen(int counter)
-        {  
+        {
+            wiederverfuegbar();
             Console.WriteLine("\nFahrzeug {0} ", counter);
             Console.WriteLine("Hersteller: " + Hersteller);
             Console.WriteLine("Preis " + Preis + "Euro");
@@ -123,6 +124,7 @@ namespace AutoKauf
 
         public void DetailsAnschauen()
         {
+            wiederverfuegbar();
             Console.WriteLine("Hersteller: " + Hersteller);
             Console.WriteLine("Preis: " + Preis);
             Console.WriteLine("Standort: " + Standort);

@@ -56,6 +56,7 @@ namespace AutoKauf
                 {
                     case ConsoleKey.D1:
                     case ConsoleKey.NumPad1:
+                        
                         verleih.FahrzeugLeihen();
                         break;
 
