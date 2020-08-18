@@ -13,9 +13,6 @@ namespace AutoKauf
 {
     public class FahrzeugVerleih
     {
-        public static int zeit;
-
-        DateTime dateTime = DateTime.Now;
         const string speicherdatei = "jsonliste";
         const string speicherdateikunde = "jsonlistekunde";
         public List<Fahrzeug> FahrzeugListe = new List<Fahrzeug>();
@@ -47,14 +44,15 @@ namespace AutoKauf
                     FahrzeugListe.ElementAt(leihen - 1).Anzeigen(leihen);
 
                     Console.Write("Wie lang möchten sie den Wagen ausleihen ");
-                    zeit = Convert.ToInt32(Console.ReadLine());
+                    int zeit = Convert.ToInt32(Console.ReadLine());
 
                     KundenListeUeberpruefen(FahrzeugListe.ElementAt(leihen - 1));
 
                     Console.WriteLine("Ihr Auto ist gemietet und bereit zur Abholung");
                     FahrzeugListe.ElementAt(leihen - 1).Verfuegbar = false;
-                    FahrzeugListe.ElementAt(leihen - 1).AusgeliehenUM = dateTime;
                     FahrzeugListe.ElementAt(leihen - 1).AusgeliehenBIS = zeit;
+                    FahrzeugListe.ElementAt(leihen - 1).AusgeliehenUM = DateTime.Now;
+                    
                     Thread.Sleep(5000);
                     Console.Clear();
                 }
@@ -658,6 +656,11 @@ namespace AutoKauf
             {
                 TypeNameHandling = TypeNameHandling.Auto
             })); 
+        }
+
+        public void Standort()
+        {
+
         }
     }
 }

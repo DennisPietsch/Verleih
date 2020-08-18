@@ -111,6 +111,7 @@ namespace AutoKauf
                     Console.WriteLine("Ausgeliehenes Fahrzeug: ");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     item.VermietetesAuto.DetailsAnschauen();
+                    item.wiederverfuegbar();
                 }
 
                 counter++;
@@ -130,6 +131,17 @@ namespace AutoKauf
 
         public Kunde()
         {
+        }
+
+        public void wiederverfuegbar()
+        {
+            int AusgeliehenBIS = VermietetesAuto.AusgeliehenBIS;
+            DateTime AusgeliehenUM = VermietetesAuto.AusgeliehenUM;
+
+            if (AusgeliehenUM.AddMinutes(AusgeliehenBIS) <= DateTime.Now)
+            {
+                vermietetesauto = null;
+            }
         }
     }
 }

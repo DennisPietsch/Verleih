@@ -17,10 +17,34 @@
   },
   {
     "speicherdateikunde": "jsonlistekunde",
-    "Name": "Thomas",
+    "Name": "Thoams",
     "Alter": 32,
     "Standort": "Stuttgart",
     "VermietetesAuto": null,
     "EMail": "ThomasFriedlich1982@email.com"
+  },
+  {
+    "speicherdateikunde": "jsonlistekunde",
+    "Name": "test",
+    "Alter": 14,
+    "Standort": "aalen",
+    "VermietetesAuto": null,
+    "EMail": "testmail"
+  },
+  {
+    "speicherdateikunde": "jsonlistekunde",
+    "Name": "test",
+    "Alter": 18,
+    "Standort": "aalen",
+    "VermietetesAuto": null,
+    "EMail": "testmail"
+  },
+  {
+    "speicherdateikunde": "jsonlistekunde",
+    "Name": "tester",
+    "Alter": 28,
+    "Standort": "stuttgart",
+    "VermietetesAuto": null,
+    "EMail": "testmail2"
   }
 ]
