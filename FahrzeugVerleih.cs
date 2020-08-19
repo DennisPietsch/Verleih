@@ -247,7 +247,7 @@ namespace AutoKauf
             else if (cki.KeyChar == '3')
             {
                 Console.Clear();
-                FahrzeugListe.Add(NeuesMOTORRADHinzufuegen());
+                FahrzeugListe.Add(NeuenLKWHinzufuegen());
             }
         }
 
@@ -256,10 +256,8 @@ namespace AutoKauf
             ConsoleKeyInfo cki;
             Auto fahrzeug = new Auto();
 
-            Console.WriteLine("Bitte geben sie den Standort des Fahrzeugs an  ");
-            string standort = Console.ReadLine();
+            fahrzeug.standort.NeuenStandortHinzufuegen();
             Console.Clear();
-            fahrzeug.Standort = standort;
 
             Console.WriteLine("Bitte geben sie den Hersteller des Fahrzeugs an  ");
             string hersteller = Console.ReadLine();
@@ -348,15 +346,13 @@ namespace AutoKauf
             return fahrzeug;
         }
 
-        public Fahrzeug NeuenLKWHinzufuegen()
+        public Fahrzeug NeuesMOTORRADHinzufuegen()
         {
             ConsoleKeyInfo cki;
             Motorrad fahrzeug = new Motorrad();
 
-            Console.WriteLine("Bitte geben sie den Standort des Fahrzeugs an  ");
-            string standort = Console.ReadLine();
+            fahrzeug.standort.NeuenStandortHinzufuegen();
             Console.Clear();
-            fahrzeug.Standort = standort;
 
             Console.WriteLine("Bitte geben sie den Hersteller des Fahrzeugs an  ");
             string hersteller = Console.ReadLine();
@@ -446,15 +442,13 @@ namespace AutoKauf
             return fahrzeug;
         }
 
-        public Fahrzeug NeuesMOTORRADHinzufuegen()
+        public Fahrzeug NeuenLKWHinzufuegen()
         {
             ConsoleKeyInfo cki;
             LKW fahrzeug = new LKW();
 
-            Console.WriteLine("Bitte geben sie den Standort des Fahrzeugs an  ");
-            string standort = Console.ReadLine();
+            fahrzeug.standort.NeuenStandortHinzufuegen();
             Console.Clear();
-            fahrzeug.Standort = standort;
 
             Console.WriteLine("Bitte geben sie den Hersteller des Fahrzeugs an  ");
             string hersteller = Console.ReadLine();
@@ -656,11 +650,6 @@ namespace AutoKauf
             {
                 TypeNameHandling = TypeNameHandling.Auto
             })); 
-        }
-
-        public void Standort()
-        {
-
         }
     }
 }

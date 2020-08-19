@@ -14,6 +14,9 @@ namespace AutoKauf
         {
             FahrzeugVerleih verleih = new FahrzeugVerleih();
             Kunde kunde = new Kunde();
+            Standort standort = new Standort();
+
+            standort.TestKoordinatenHinzufuegen();
 
             ConsoleKeyInfo cki;
 
@@ -45,8 +48,9 @@ namespace AutoKauf
                 Console.WriteLine("[1] Fahrzeug ausleihen");
                 Console.WriteLine("[2] Fahrzeug hinzufügen");
                 Console.WriteLine("[3] Verfügbare Fahrzeuge checken");
-                Console.WriteLine("[4] Als Kunde eintragen");
-                Console.WriteLine("[5] Kunden auslesen");
+                Console.WriteLine("[4] Verfügbare Fahrzeuge in der Umgebung checken ");
+                Console.WriteLine("[5] Als Kunde eintragen");
+                Console.WriteLine("[6] Kunden auslesen");
                 Console.WriteLine("[ESC] EXIT");
 
                 cki = Console.ReadKey();
@@ -72,11 +76,16 @@ namespace AutoKauf
 
                     case ConsoleKey.D4:
                     case ConsoleKey.NumPad4:
-                        verleih.kundenliste.Add(kunde.NeuenKundenHinzufuegen());
+                        standort.StandortAbfrage();
                         break;
 
                     case ConsoleKey.D5:
                     case ConsoleKey.NumPad5:
+                        verleih.kundenliste.Add(kunde.NeuenKundenHinzufuegen());
+                        break;
+
+                    case ConsoleKey.D6:
+                    case ConsoleKey.NumPad6:
                         kunde.KundenListeAuslesen(verleih.kundenliste);
                         break;
 

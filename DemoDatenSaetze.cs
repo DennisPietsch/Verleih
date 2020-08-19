@@ -21,7 +21,7 @@ namespace AutoKauf
             fahrzeugAUTO.Kraftstoff = Energie.Benzin;
             fahrzeugAUTO.Leistung = 170;
             fahrzeugAUTO.SitzPlaetze = 5;
-            fahrzeugAUTO.Standort = "Stuttgart";
+            fahrzeugAUTO.Stadt = "Stuttgart";
             fahrzeugAUTO.Bauhjahr = 2012;
             fahrzeugAUTO.AnhängerKupplung = true;
             fahrzeugAUTO.Verfuegbar = false;
@@ -37,7 +37,7 @@ namespace AutoKauf
             fahrzeugAUTO.Kraftstoff = Energie.Strom;
             fahrzeugAUTO.Leistung = 150;
             fahrzeugAUTO.SitzPlaetze = 4;
-            fahrzeugAUTO.Standort = "Berlin";
+            fahrzeugAUTO.Stadt = "Berlin";
             fahrzeugAUTO.Bauhjahr = 2019;
             fahrzeugAUTO.AnhängerKupplung = false;
             fahrzeugAUTO.Verfuegbar = true;
@@ -52,7 +52,7 @@ namespace AutoKauf
             fahrzeugAUTO.Kraftstoff = Energie.Benzin;
             fahrzeugAUTO.Leistung = 250;
             fahrzeugAUTO.SitzPlaetze = 2;
-            fahrzeugAUTO.Standort = "Hamburg";
+            fahrzeugAUTO.Stadt = "Hamburg";
             fahrzeugAUTO.Bauhjahr = 2008;
             fahrzeugAUTO.AnhängerKupplung = true;
             fahrzeugAUTO.Verfuegbar = true;
@@ -67,7 +67,7 @@ namespace AutoKauf
             fahrzeugAUTO.Kraftstoff = Energie.Wasserstoff;
             fahrzeugAUTO.Leistung = 340;
             fahrzeugAUTO.SitzPlaetze = 5;
-            fahrzeugAUTO.Standort = "Köln";
+            fahrzeugAUTO.Stadt = "Köln";
             fahrzeugAUTO.Bauhjahr = 2016;
             fahrzeugAUTO.AnhängerKupplung = false;
             fahrzeugAUTO.Verfuegbar = true;
@@ -82,7 +82,7 @@ namespace AutoKauf
             fahrzeugAUTO.Kraftstoff = Energie.Erdgas;
             fahrzeugAUTO.Leistung = 250;
             fahrzeugAUTO.SitzPlaetze = 4;
-            fahrzeugAUTO.Standort = "Nürnberg";
+            fahrzeugAUTO.Stadt = "Nürnberg";
             fahrzeugAUTO.Bauhjahr = 2019;
             fahrzeugAUTO.AnhängerKupplung = true;
             fahrzeugAUTO.Verfuegbar = true;
@@ -97,7 +97,7 @@ namespace AutoKauf
             fahrzeugLKW.Kraftstoff = Energie.Benzin;
             fahrzeugLKW.Leistung = 520;
             fahrzeugLKW.SitzPlaetze = 2;
-            fahrzeugLKW.Standort = "Berlin";
+            fahrzeugLKW.Stadt = "Berlin";
             fahrzeugLKW.Bauhjahr = 2018;
             fahrzeugLKW.Ladevolumen = 23;
             fahrzeugLKW.Verfuegbar = true;
@@ -112,7 +112,7 @@ namespace AutoKauf
             fahrzeugLKW.Kraftstoff = Energie.LKWDiesel;
             fahrzeugLKW.Leistung = 430;
             fahrzeugLKW.SitzPlaetze = 2;
-            fahrzeugLKW.Standort = "Stuttgart";
+            fahrzeugLKW.Stadt = "Stuttgart";
             fahrzeugLKW.Bauhjahr = 2012;
             fahrzeugLKW.Ladevolumen = 16;
             fahrzeugLKW.Verfuegbar = true;
@@ -127,7 +127,7 @@ namespace AutoKauf
             fahrzeugLKW.Kraftstoff = Energie.LKWDiesel;
             fahrzeugLKW.Leistung = 600;
             fahrzeugLKW.SitzPlaetze = 2;
-            fahrzeugLKW.Standort = "München";
+            fahrzeugLKW.Stadt = "München";
             fahrzeugLKW.Bauhjahr = 2020;
             fahrzeugLKW.Ladevolumen = 34;
             fahrzeugLKW.Verfuegbar = true;
@@ -142,7 +142,7 @@ namespace AutoKauf
             fahrzeugLKW.Kraftstoff = Energie.Erdgas;
             fahrzeugLKW.Leistung = 420;
             fahrzeugLKW.SitzPlaetze = 2;
-            fahrzeugLKW.Standort = "Bremen";
+            fahrzeugLKW.Stadt = "Bremen";
             fahrzeugLKW.Bauhjahr = 2018;
             fahrzeugLKW.Ladevolumen = 30;
             fahrzeugLKW.Verfuegbar = true;
@@ -157,7 +157,7 @@ namespace AutoKauf
             fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
             fahrzeugMOTORRAD.Leistung = 210;
             fahrzeugMOTORRAD.SitzPlaetze = 2;
-            fahrzeugMOTORRAD.Standort = "Dortmund";
+            fahrzeugMOTORRAD.Stadt = "Dortmund";
             fahrzeugMOTORRAD.Bauhjahr = 2019;
             fahrzeugMOTORRAD.Seitenwagen = false;
             fahrzeugMOTORRAD.Verfuegbar = true;
@@ -172,7 +172,7 @@ namespace AutoKauf
             fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
             fahrzeugMOTORRAD.Leistung = 170;
             fahrzeugMOTORRAD.SitzPlaetze = 2;
-            fahrzeugMOTORRAD.Standort = "Stuttgart";
+            fahrzeugMOTORRAD.Stadt = "Stuttgart";
             fahrzeugMOTORRAD.Bauhjahr = 2016;
             fahrzeugMOTORRAD.Seitenwagen = false;
             fahrzeugMOTORRAD.Verfuegbar = true;
@@ -187,7 +187,7 @@ namespace AutoKauf
             fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
             fahrzeugMOTORRAD.Leistung = 210;
             fahrzeugMOTORRAD.SitzPlaetze = 2;
-            fahrzeugMOTORRAD.Standort = "München";
+            fahrzeugMOTORRAD.Stadt = "München";
             fahrzeugMOTORRAD.Bauhjahr = 2019;
             fahrzeugMOTORRAD.Seitenwagen = false;
             fahrzeugMOTORRAD.Verfuegbar = true;
@@ -202,7 +202,7 @@ namespace AutoKauf
             fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
             fahrzeugMOTORRAD.Leistung = 15;
             fahrzeugMOTORRAD.SitzPlaetze = 2;
-            fahrzeugMOTORRAD.Standort = "Berlin";
+            fahrzeugMOTORRAD.Stadt = "Berlin";
             fahrzeugMOTORRAD.Bauhjahr = 2019;
             fahrzeugMOTORRAD.Seitenwagen = false;
             fahrzeugMOTORRAD.Verfuegbar = true;
@@ -217,7 +217,7 @@ namespace AutoKauf
             fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
             fahrzeugMOTORRAD.Leistung = 80;
             fahrzeugMOTORRAD.SitzPlaetze = 2;
-            fahrzeugMOTORRAD.Standort = "Berlin";
+            fahrzeugMOTORRAD.Stadt = "Berlin";
             fahrzeugMOTORRAD.Bauhjahr = 2012;
             fahrzeugMOTORRAD.Seitenwagen = true;
             fahrzeugMOTORRAD.Verfuegbar = true;

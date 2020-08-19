@@ -17,7 +17,7 @@ namespace AutoKauf
 
         private string name;
         private int alter;
-        private string standort;
+        private Standort standort;
         private Fahrzeug vermietetesauto;
         private string email;
 
@@ -33,7 +33,7 @@ namespace AutoKauf
             set { alter = value; }
         }
 
-        public string Standort
+        public Standort Standort
         {
             get { return standort; }
             set { standort = value; }
@@ -68,7 +68,7 @@ namespace AutoKauf
             Console.Clear();
 
             Console.Write("Bitte geben sie ihren Standort ein  ");
-            kunde.standort = Console.ReadLine();
+            kunde.standort.Stadt = Console.ReadLine();
             Console.Clear();
 
             Console.WriteLine("Ihre Daten wurden gespeichert");
@@ -83,7 +83,7 @@ namespace AutoKauf
 
             kunde.name = name;
             kunde.alter = alter;
-            kunde.standort = standort;
+            kunde.standort.Stadt = standort;
 
             Kunden.Add(kunde);
         }
@@ -126,7 +126,7 @@ namespace AutoKauf
             EMail = email;
             Name = name;
             Alter = alter;
-            Standort = standort;
+            Standort.Stadt = standort;
         }
 
         public Kunde()

@@ -12,7 +12,7 @@ namespace AutoKauf
         private int leistung;
         private int bauhjahr;
         private int preis;
-        private string standort;
+        private Standort standortle;
         private string hersteller;
         private Energie kraftstoff;
         private bool verfuegbar;
@@ -51,10 +51,10 @@ namespace AutoKauf
             set { preis = value; }
         }
 
-        public string Standort
+        public Standort standort
         {
-            get { return standort; }
-            set { standort = value; }
+            get { return standortle; }
+            set { standortle = value; }
         }
 
         public string Hersteller
@@ -104,7 +104,7 @@ namespace AutoKauf
             Console.WriteLine("\nFahrzeug {0} ", counter);
             Console.WriteLine("Hersteller: " + Hersteller);
             Console.WriteLine("Preis " + Preis + "Euro");
-            Console.WriteLine("Standort: " + Standort);
+            Console.WriteLine("Standort: " + standort.Stadt);
             if (Verfuegbar == true)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -127,7 +127,7 @@ namespace AutoKauf
         {
             Console.WriteLine("Hersteller: " + Hersteller);
             Console.WriteLine("Preis: " + Preis);
-            Console.WriteLine("Standort: " + Standort);
+            Console.WriteLine("Standort: " + standort.Stadt);
             Console.WriteLine("Leistung: " + Leistung + " PS");
             Console.WriteLine("Baujahr: " + Bauhjahr);
             Console.WriteLine("Kraftstoff: " + Kraftstoff);
