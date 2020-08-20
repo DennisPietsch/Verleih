@@ -15,8 +15,10 @@ namespace AutoKauf
     {
         const string speicherdatei = "jsonliste";
         const string speicherdateikunde = "jsonlistekunde";
+        const string speicherdateistandorte = "jsonlistestandorte";
         public List<Fahrzeug> FahrzeugListe = new List<Fahrzeug>();
         public List<Kunde> kundenliste = new List<Kunde>();
+        public List<Standort> standortListe = new List<Standort>();
 
         public void FahrzeugAuswaehlen()
         {
@@ -36,36 +38,38 @@ namespace AutoKauf
             Console.Clear();
             if (cki.KeyChar == 'j')
             {
-                Console.WriteLine("Welches Auto wollen sie leihen ");
-                int leihen = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Bitte geben sie die FahrzeugID ein: ");
+                string ID = Console.ReadLine();
 
-                if (FahrzeugListe.ElementAt(leihen - 1).Verfuegbar == true)
+                foreach (var item in FahrzeugListe)
                 {
-                    FahrzeugListe.ElementAt(leihen - 1).Anzeigen(leihen);
+                    if (item.FahrzeugID == ID)
+                    {
+                        if (item.Verfuegbar == true)
+                        {
+                            Console.Write("Wie lang möchten sie den Wagen ausleihen ");
+                            int zeit = Convert.ToInt32(Console.ReadLine());
 
-                    Console.Write("Wie lang möchten sie den Wagen ausleihen ");
-                    int zeit = Convert.ToInt32(Console.ReadLine());
+                            KundenListeUeberpruefen(item);
 
-                    KundenListeUeberpruefen(FahrzeugListe.ElementAt(leihen - 1));
+                            Console.WriteLine("Ihr Auto ist gemietet und bereit zur Abholung");
+                            item.Verfuegbar = false;
+                            item.AusgeliehenBIS = zeit;
+                            item.AusgeliehenUM = DateTime.Now;
 
-                    Console.WriteLine("Ihr Auto ist gemietet und bereit zur Abholung");
-                    FahrzeugListe.ElementAt(leihen - 1).Verfuegbar = false;
-                    FahrzeugListe.ElementAt(leihen - 1).AusgeliehenBIS = zeit;
-                    FahrzeugListe.ElementAt(leihen - 1).AusgeliehenUM = DateTime.Now;
-                    
-                    Thread.Sleep(5000);
-                    Console.Clear();
+                            Thread.Sleep(5000);
+                            Console.Clear();
+                        }
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Fahrzeug ist nich Verfügabr ");
+                        Thread.Sleep(3000);
+                        FahrzeugLeihen();
+                    }
                 }
 
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Fahrzeug ist nicht verfügbar oder ist nicht vorhanden");
-                    Console.ForegroundColor = ConsoleColor.Gray;
-
-                    Thread.Sleep(3000);
-                    FahrzeugLeihen();
-                }
             }
 
             else
@@ -113,23 +117,39 @@ namespace AutoKauf
                         counter++;
                     }
 
-                    Console.Write("\n\nMöchten sie ein Auto genauer anschauen [j] [n] ");
-                    cki = Console.ReadKey();
-                    if (cki.KeyChar == 'j')
+                    do
                     {
-                        Console.Clear();
-                        Console.Write("Welches Auto wollen sie sich genauer anschauen ");
-                        int autoAnschauen = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("\n\nMöchten sie ein Auto genauer anschauen [j] [n] ");
+                        cki = Console.ReadKey();
+                        if (cki.KeyChar == 'j')
+                        {
+                            Console.Clear();
+                            Console.Write("Geben sie die FahrzeugID ein: ");
+                            string ID = Console.ReadLine();
 
-                        fahrzeuge.ElementAt(autoAnschauen - 1).DetailsAnschauen();
-                        Console.ReadKey();
-                    }
+                            foreach (var item in FahrzeugListe)
+                            {
+                                if (item.FahrzeugID == ID)
+                                {
+                                    item.DetailsAnschauen();
+                                    Console.ReadKey();
+                                    fahrzeuge.Clear();
+                                    return;
+                                }
+                            }
 
-                    else
-                    {
-                    }
-                    fahrzeuge.Clear();
-                    break;
+                            Console.WriteLine("Diese FahrzeugID ist nich vorhanden");
+                            Thread.Sleep(3000);
+                        }
+
+                        else
+                        {
+                            fahrzeuge.Clear();
+                            Console.Clear();
+                            return;
+                        }
+
+                    } while (true);
 
                 case '2':
 
@@ -149,24 +169,39 @@ namespace AutoKauf
                         counter++;
                     }
 
-                    Console.Write("\n\nMöchten sie ein LKW genauer anschauen [j] [n] ");
-                    cki = Console.ReadKey();
-                    if (cki.KeyChar == 'j')
+                    do
                     {
-                        Console.Clear();
-                        Console.Write("Welchen LKW wollen sie sich genauer anschauen ");
-                        int autoAnschauen = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("\n\nMöchten sie ein LKW genauer anschauen [j] [n] ");
+                        cki = Console.ReadKey();
+                        if (cki.KeyChar == 'j')
+                        {
+                            Console.Clear();
+                            Console.Write("Geben sie die FahrzeugID ein: ");
+                            string ID = Console.ReadLine();
 
-                        fahrzeuge.ElementAt(autoAnschauen - 1).DetailsAnschauen();
-                    }
+                            foreach (var item in FahrzeugListe)
+                            {
+                                if (item.FahrzeugID == ID)
+                                {
+                                    item.DetailsAnschauen();
+                                    Console.ReadKey();
+                                    fahrzeuge.Clear();
+                                    return;
+                                }
+                            }
 
-                    else
-                    {
-                    }
-                    Console.ReadKey();
-                    fahrzeuge.Clear();
+                            Console.WriteLine("Diese FahrzeugID ist nich vorhanden");
+                            Thread.Sleep(3000);
+                        }
 
-                    break;
+                        else
+                        {
+                            fahrzeuge.Clear();
+                            Console.Clear();
+                            return;
+                        }
+
+                    } while (true);
 
                 case '3':
 
@@ -186,24 +221,39 @@ namespace AutoKauf
                         counter++;
                     }
 
-                    Console.Write("\n\nMöchten sie ein Motorrad genauer anschauen [j] [n] ");
-                    cki = Console.ReadKey();
-                    if (cki.KeyChar == 'j')
+                    do
                     {
-                        Console.Clear();
-                        Console.Write("Welches Motorrad wollen sie sich genauer anschauen ");
-                        int autoAnschauen = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("\n\nMöchten sie ein Motorrad genauer anschauen [j] [n] ");
+                        cki = Console.ReadKey();
+                        if (cki.KeyChar == 'j')
+                        {
+                            Console.Clear();
+                            Console.Write("Geben sie die FahrzeugID ein: ");
+                            string ID = Console.ReadLine();
 
-                        fahrzeuge.ElementAt(autoAnschauen - 1).DetailsAnschauen();
-                    }
+                            foreach (var item in FahrzeugListe)
+                            {
+                                if (item.FahrzeugID == ID)
+                                {
+                                    item.DetailsAnschauen();
+                                    Console.ReadKey();
+                                    fahrzeuge.Clear();
+                                    return;
+                                }
+                            }
 
-                    else
-                    {
-                    }
-                    Console.ReadKey();
-                    fahrzeuge.Clear();
+                            Console.WriteLine("Diese FahrzeugID ist nich vorhanden");
+                            Thread.Sleep(3000);
+                        }
 
-                    break;
+                        else
+                        {
+                            fahrzeuge.Clear();
+                            Console.Clear();
+                            return;
+                        }
+
+                    } while (true);
 
                 case '4':
 
@@ -247,7 +297,7 @@ namespace AutoKauf
             else if (cki.KeyChar == '3')
             {
                 Console.Clear();
-                FahrzeugListe.Add(NeuenLKWHinzufuegen());
+                FahrzeugListe.Add(NeuesMOTORRADHinzufuegen());
             }
         }
 
@@ -256,7 +306,55 @@ namespace AutoKauf
             ConsoleKeyInfo cki;
             Auto fahrzeug = new Auto();
 
-            fahrzeug.standort.NeuenStandortHinzufuegen();
+            Console.WriteLine("Wollen sie eine eigene FahrzeugID eingeben [e] oder eine ID generieren [g] lassen?");
+            cki = Console.ReadKey();
+
+            switch (cki.KeyChar)
+            {
+                case 'e':
+                    Console.Clear();
+                    Console.Write("Bitte geben sie eine FahrzeugID an: ");
+                    string ID = Console.ReadLine();
+
+                    if (ID.Length == 4)
+                    {
+                        Console.Clear();
+
+                        foreach (var item in FahrzeugListe)
+                        {
+                            if (item.FahrzeugID == ID)
+                            {
+                                Console.WriteLine("Diese ID ist schon vergeben");
+                                Thread.Sleep(3000);
+                                Console.Clear();
+                                NeuesAUTOHinzufuegen();
+                            }
+                        }
+
+                        fahrzeug.FahrzeugID = ID;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("ID ist zu lang oder zu kurz");
+                        Thread.Sleep(3000);
+                        NeuesAUTOHinzufuegen();
+                    }
+                    break;
+
+                case 'g':
+                    fahrzeug.FahrzeugID = RandomString();
+                    break;
+
+                default:
+                    Console.WriteLine("Keine gültige Eingabe");
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                    NeuesAUTOHinzufuegen();
+                    break;
+            }
+
+            fahrzeug.standort = Standort.NeuenStandortHinzufuegen(standortListe);
             Console.Clear();
 
             Console.WriteLine("Bitte geben sie den Hersteller des Fahrzeugs an  ");
@@ -351,7 +449,54 @@ namespace AutoKauf
             ConsoleKeyInfo cki;
             Motorrad fahrzeug = new Motorrad();
 
-            fahrzeug.standort.NeuenStandortHinzufuegen();
+            Console.WriteLine("Wollen sie eine eigene FahrzeugID eingeben [e] oder eine ID generieren [g] lassen?");
+            cki = Console.ReadKey();
+
+            switch (cki.KeyChar)
+            {
+                case 'e':
+                    Console.Clear();
+                    Console.Write("Bitte geben sie eine FahrzeugID an: ");
+                    string ID = Console.ReadLine();
+
+                    if (ID.Length == 4)
+                    {
+                        Console.Clear();
+
+                        foreach (var item in FahrzeugListe)
+                        {
+                            if (item.FahrzeugID == ID)
+                            {
+                                Console.WriteLine("Diese ID ist schon vergeben");
+                                Thread.Sleep(3000);
+                                Console.Clear();
+                                NeuesMOTORRADHinzufuegen();
+                            }
+                        }
+                        fahrzeug.FahrzeugID = ID;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("ID ist zu lang oder zu kurz");
+                        Thread.Sleep(3000);
+                        NeuesMOTORRADHinzufuegen();
+                    }
+                    break;
+
+                case 'g':
+                    fahrzeug.FahrzeugID = RandomString();
+                    break;
+
+                default:
+                    Console.WriteLine("Keine gültige Eingabe");
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                    NeuesMOTORRADHinzufuegen();
+                    break;
+            }
+
+            fahrzeug.standort = Standort.NeuenStandortHinzufuegen(standortListe);
             Console.Clear();
 
             Console.WriteLine("Bitte geben sie den Hersteller des Fahrzeugs an  ");
@@ -447,7 +592,54 @@ namespace AutoKauf
             ConsoleKeyInfo cki;
             LKW fahrzeug = new LKW();
 
-            fahrzeug.standort.NeuenStandortHinzufuegen();
+            Console.WriteLine("Wollen sie eine eigene FahrzeugID eingeben [e] oder eine ID generieren [g] lassen?");
+            cki = Console.ReadKey();
+
+            switch (cki.KeyChar)
+            {
+                case 'e':
+                    Console.Clear();
+                    Console.Write("Bitte geben sie eine FahrzeugID an: ");
+                    string ID = Console.ReadLine();
+
+                    if (ID.Length == 4)
+                    {
+                        Console.Clear();
+
+                        foreach (var item in FahrzeugListe)
+                        {
+                            if (item.FahrzeugID == ID)
+                            {
+                                Console.WriteLine("Diese ID ist schon vergeben");
+                                Thread.Sleep(3000);
+                                Console.Clear();
+                                NeuenLKWHinzufuegen();
+                            }
+                        }
+                        fahrzeug.FahrzeugID = ID;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("ID ist zu lang oder zu kurz");
+                        Thread.Sleep(3000);
+                        NeuenLKWHinzufuegen();
+                    }
+                    break;
+
+                case 'g':
+                    fahrzeug.FahrzeugID = RandomString();
+                    break;
+
+                default:
+                    Console.WriteLine("Keine gültige Eingabe");
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                    NeuenLKWHinzufuegen();
+                    break;
+            }
+
+            fahrzeug.standort = Standort.NeuenStandortHinzufuegen(standortListe);
             Console.Clear();
 
             Console.WriteLine("Bitte geben sie den Hersteller des Fahrzeugs an  ");
@@ -527,7 +719,7 @@ namespace AutoKauf
             Console.Clear();
             return fahrzeug;
         }
-                        
+
         public void KundenListeUeberpruefen(Fahrzeug fahrzeug)
         {
             ConsoleKeyInfo cki;
@@ -538,22 +730,10 @@ namespace AutoKauf
             Console.Clear();
 
             if (cki.KeyChar == 'j')
-            { 
+            {
                 Console.WriteLine("Bitte geben sie ihre EMail Addresse ein ");
                 string email = Console.ReadLine();
                 Console.Clear();
-
-                /*Console.Write("Bitte geben sie ihren Namen ein  ");
-                string Name = Console.ReadLine();
-                Console.Clear();
-
-                Console.Write("Bitte geben sie ihr Alter ein  ");
-                int Alter = Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
-
-                Console.Write("Bitte geben sie ihren Standort ein  ");
-                string Standort = Console.ReadLine();
-                Console.Clear();*/
 
                 foreach (var item in kundenliste)
                 {
@@ -585,7 +765,6 @@ namespace AutoKauf
                 {
                     Console.WriteLine("Sie können kein Auto ohne Konto leihen ");
                     Thread.Sleep(3000);
-                    
                 }
             }
 
@@ -618,10 +797,10 @@ namespace AutoKauf
                 TypeNameHandling = TypeNameHandling.Auto
             });
 
-            File.WriteAllText(speicherdatei ,jsonstring);
+            File.WriteAllText(speicherdatei, jsonstring);
         }
 
-        public void AutoAusJSONListeLaden() 
+        public void AutoAusJSONListeLaden()
         {
             string jsonstring;
             jsonstring = File.ReadAllText(speicherdatei);
@@ -649,7 +828,43 @@ namespace AutoKauf
             kundenliste.AddRange(JsonConvert.DeserializeObject<List<Kunde>>(jsonstring, new JsonSerializerSettings
             {
                 TypeNameHandling = TypeNameHandling.Auto
-            })); 
+            }));
+        }
+
+        public void StandorteInJSONListeSpeichern()
+        {
+            string jsonstring;
+            jsonstring = JsonConvert.SerializeObject(standortListe, Formatting.Indented, new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.Auto
+            });
+
+            File.WriteAllText(speicherdateistandorte, jsonstring);
+        }
+
+        public void StandorteAusJSONListeLaden()
+        {
+            string jsonstring;
+            jsonstring = File.ReadAllText(speicherdateistandorte);
+            standortListe.AddRange(JsonConvert.DeserializeObject<List<Standort>>(jsonstring, new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.Auto
+            }));
+        }
+
+        public string RandomString()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            var stringChars = new char[4];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+            var finalString = new String(stringChars);
+
+            return finalString;
         }
     }
 }

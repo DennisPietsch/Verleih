@@ -20,6 +20,7 @@ namespace AutoKauf
         private int ausgeliehenBIS;
         private DateTime ausgeliehenUM;
         private int wiederVerfuegbar;
+        private string fahrzeugID;
 
         public int SitzPlaetze
         {
@@ -99,9 +100,17 @@ namespace AutoKauf
             set { wiederVerfuegbar = value; }
         }
 
+        public string FahrzeugID
+        {
+            get { return fahrzeugID; }
+            set { fahrzeugID = value; }
+        }
+
         public virtual void Anzeigen(int counter)
         {
-            Console.WriteLine("\nFahrzeug {0} ", counter);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Fahrzeug ID: " + FahrzeugID);
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Hersteller: " + Hersteller);
             Console.WriteLine("Preis " + Preis + "Euro");
             Console.WriteLine("Standort: " + standort.Stadt);
@@ -125,6 +134,10 @@ namespace AutoKauf
 
         public void DetailsAnschauen()
         {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("FahrzeugID: " + FahrzeugID);
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Hersteller: " + Hersteller);
             Console.WriteLine("Preis: " + Preis);
             Console.WriteLine("Standort: " + standort.Stadt);

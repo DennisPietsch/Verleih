@@ -3,48 +3,27 @@
     "speicherdateikunde": "jsonlistekunde",
     "Name": "Stefan",
     "Alter": 29,
-    "Standort": "Heubach",
+    "Standort": null,
     "VermietetesAuto": null,
-    "EMail": "Stefan.Test@gmail.com"
+    "EMail": "Stefan.Test@gmail.com",
+    "Guthaben": 0
   },
   {
     "speicherdateikunde": "jsonlistekunde",
     "Name": "Max",
     "Alter": 44,
-    "Standort": "Düsseldorf",
+    "Standort": null,
     "VermietetesAuto": null,
-    "EMail": "Max.Mustermann@gmx.de"
+    "EMail": "Max.Mustermann@gmx.de",
+    "Guthaben": 0
   },
   {
     "speicherdateikunde": "jsonlistekunde",
     "Name": "Thoams",
     "Alter": 32,
-    "Standort": "Stuttgart",
+    "Standort": null,
     "VermietetesAuto": null,
-    "EMail": "ThomasFriedlich1982@email.com"
-  },
-  {
-    "speicherdateikunde": "jsonlistekunde",
-    "Name": "test",
-    "Alter": 14,
-    "Standort": "aalen",
-    "VermietetesAuto": null,
-    "EMail": "testmail"
-  },
-  {
-    "speicherdateikunde": "jsonlistekunde",
-    "Name": "test",
-    "Alter": 18,
-    "Standort": "aalen",
-    "VermietetesAuto": null,
-    "EMail": "testmail"
-  },
-  {
-    "speicherdateikunde": "jsonlistekunde",
-    "Name": "tester",
-    "Alter": 28,
-    "Standort": "stuttgart",
-    "VermietetesAuto": null,
-    "EMail": "testmail2"
+    "EMail": "ThomasFriedlich1982@email.com",
+    "Guthaben": 0
   }
 ]

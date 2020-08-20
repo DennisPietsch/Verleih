@@ -7,14 +7,23 @@
     "Leistung": 170,
     "Bauhjahr": 2012,
     "Preis": 7500,
-    "Standort": "Stuttgart",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Stuttgart",
+      "XKoord": 48.778613,
+      "YKoord": 9.180573,
+      "Fahrzeuge": null
+    },
     "Hersteller": "Audi",
     "Kraftstoff": 1,
     "Verfuegbar": true,
     "Kundenname": null,
-    "AusgeliehenUM": "2020-08-18T11:25:09.1718081+02:00",
-    "AusgeliehenBIS": 1,
-    "WiederVerfuegbar": 0
+    "AusgeliehenUM": "0001-01-01T00:00:00",
+    "AusgeliehenBIS": 0,
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "AAAA"
   },
   {
     "$type": "AutoKauf.Auto, AutoKauf",
@@ -24,14 +33,23 @@
     "Leistung": 150,
     "Bauhjahr": 2019,
     "Preis": 15000,
-    "Standort": "Berlin",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Crailsheim",
+      "XKoord": 49.134012,
+      "YKoord": 10.063753,
+      "Fahrzeuge": null
+    },
     "Hersteller": "VW",
     "Kraftstoff": 4,
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 1,
-    "WiederVerfuegbar": 0
+    "AusgeliehenBIS": 0,
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "FBH1"
   },
   {
     "$type": "AutoKauf.Auto, AutoKauf",
@@ -41,14 +59,23 @@
     "Leistung": 250,
     "Bauhjahr": 2008,
     "Preis": 2350,
-    "Standort": "Hamburg",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Hamburg",
+      "XKoord": 53.551059,
+      "YKoord": 9.992898,
+      "Fahrzeuge": null
+    },
     "Hersteller": "Mazda",
     "Kraftstoff": 1,
     "Verfuegbar": true,
     "Kundenname": null,
-    "AusgeliehenUM": "2020-08-18T10:09:13.5079584+02:00",
-    "AusgeliehenBIS": 1,
-    "WiederVerfuegbar": 0
+    "AusgeliehenUM": "0001-01-01T00:00:00",
+    "AusgeliehenBIS": 0,
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "KJS2"
   },
   {
     "$type": "AutoKauf.Auto, AutoKauf",
@@ -58,14 +85,23 @@
     "Leistung": 340,
     "Bauhjahr": 2016,
     "Preis": 22500,
-    "Standort": "Köln",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Köln",
+      "XKoord": 50.937651,
+      "YKoord": 6.959924,
+      "Fahrzeuge": null
+    },
     "Hersteller": "Mercedes",
     "Kraftstoff": 2,
     "Verfuegbar": true,
     "Kundenname": null,
-    "AusgeliehenUM": "2020-08-18T10:09:13.5079584+02:00",
-    "AusgeliehenBIS": 1,
-    "WiederVerfuegbar": 0
+    "AusgeliehenUM": "0001-01-01T00:00:00",
+    "AusgeliehenBIS": 0,
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "WIEN"
   },
   {
     "$type": "AutoKauf.Auto, AutoKauf",
@@ -75,14 +111,23 @@
     "Leistung": 250,
     "Bauhjahr": 2019,
     "Preis": 17800,
-    "Standort": "Nürnberg",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Dortmund",
+      "XKoord": 51.513299,
+      "YKoord": 7.465002,
+      "Fahrzeuge": null
+    },
     "Hersteller": "BMW",
     "Kraftstoff": 3,
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
     "AusgeliehenBIS": 0,
-    "WiederVerfuegbar": 0
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "2IE9"
   },
   {
     "$type": "AutoKauf.LKW, AutoKauf",
@@ -92,14 +137,23 @@
     "Leistung": 520,
     "Bauhjahr": 2018,
     "Preis": 53000,
-    "Standort": "Berlin",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Berlin",
+      "XKoord": 52.520069,
+      "YKoord": 13.404778,
+      "Fahrzeuge": null
+    },
     "Hersteller": "Scania",
     "Kraftstoff": 1,
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
     "AusgeliehenBIS": 0,
-    "WiederVerfuegbar": 0
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "8UWB"
   },
   {
     "$type": "AutoKauf.LKW, AutoKauf",
@@ -109,14 +163,23 @@
     "Leistung": 430,
     "Bauhjahr": 2012,
     "Preis": 43290,
-    "Standort": "Stuttgart",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Dresden",
+      "XKoord": 51.050702,
+      "YKoord": 13.737526,
+      "Fahrzeuge": null
+    },
     "Hersteller": "MAN",
     "Kraftstoff": 5,
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
     "AusgeliehenBIS": 0,
-    "WiederVerfuegbar": 0
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "BSOW"
   },
   {
     "$type": "AutoKauf.LKW, AutoKauf",
@@ -126,14 +189,23 @@
     "Leistung": 600,
     "Bauhjahr": 2020,
     "Preis": 63000,
-    "Standort": "München",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "München",
+      "XKoord": 48.136728,
+      "YKoord": 11.579453,
+      "Fahrzeuge": null
+    },
     "Hersteller": "Mercedes",
     "Kraftstoff": 5,
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
     "AusgeliehenBIS": 0,
-    "WiederVerfuegbar": 0
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "92JH"
   },
   {
     "$type": "AutoKauf.LKW, AutoKauf",
@@ -143,14 +215,23 @@
     "Leistung": 420,
     "Bauhjahr": 2018,
     "Preis": 32500,
-    "Standort": "Bremen",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Bremen",
+      "XKoord": 53.078816,
+      "YKoord": 8.802276,
+      "Fahrzeuge": null
+    },
     "Hersteller": "Volvo",
     "Kraftstoff": 3,
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
     "AusgeliehenBIS": 0,
-    "WiederVerfuegbar": 0
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "POWN"
   },
   {
     "$type": "AutoKauf.Motorrad, AutoKauf",
@@ -160,14 +241,23 @@
     "Leistung": 210,
     "Bauhjahr": 2019,
     "Preis": 30000,
-    "Standort": "Dortmund",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Stuttgart",
+      "XKoord": 48.778613,
+      "YKoord": 9.180573,
+      "Fahrzeuge": null
+    },
     "Hersteller": "Ducati",
     "Kraftstoff": 1,
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
     "AusgeliehenBIS": 0,
-    "WiederVerfuegbar": 0
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "6JHS"
   },
   {
     "$type": "AutoKauf.Motorrad, AutoKauf",
@@ -177,14 +267,23 @@
     "Leistung": 170,
     "Bauhjahr": 2016,
     "Preis": 12000,
-    "Standort": "Stuttgart",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Heidenheim",
+      "XKoord": 48.689539,
+      "YKoord": 10.161213,
+      "Fahrzeuge": null
+    },
     "Hersteller": "Kawasaki",
     "Kraftstoff": 1,
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
     "AusgeliehenBIS": 0,
-    "WiederVerfuegbar": 0
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "82JS"
   },
   {
     "$type": "AutoKauf.Motorrad, AutoKauf",
@@ -194,14 +293,23 @@
     "Leistung": 210,
     "Bauhjahr": 2019,
     "Preis": 30000,
-    "Standort": "München",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Nürnberg",
+      "XKoord": 49.452145,
+      "YKoord": 11.076722,
+      "Fahrzeuge": null
+    },
     "Hersteller": "Ducati",
     "Kraftstoff": 1,
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
     "AusgeliehenBIS": 0,
-    "WiederVerfuegbar": 0
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "7JSH"
   },
   {
     "$type": "AutoKauf.Motorrad, AutoKauf",
@@ -211,14 +319,23 @@
     "Leistung": 15,
     "Bauhjahr": 2019,
     "Preis": 3750,
-    "Standort": "Berlin",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Frankfurt",
+      "XKoord": 50.11091,
+      "YKoord": 8.681817,
+      "Fahrzeuge": null
+    },
     "Hersteller": "KTM",
     "Kraftstoff": 1,
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
     "AusgeliehenBIS": 0,
-    "WiederVerfuegbar": 0
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "4UHG"
   },
   {
     "$type": "AutoKauf.Motorrad, AutoKauf",
@@ -228,13 +345,48 @@
     "Leistung": 80,
     "Bauhjahr": 2012,
     "Preis": 14300,
-    "Standort": "Berlin",
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Berlin",
+      "XKoord": 52.520069,
+      "YKoord": 13.404778,
+      "Fahrzeuge": null
+    },
     "Hersteller": "Ural",
     "Kraftstoff": 1,
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
     "AusgeliehenBIS": 0,
-    "WiederVerfuegbar": 0
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "8PWN"
+  },
+  {
+    "$type": "AutoKauf.Auto, AutoKauf",
+    "AnhängerKupplung": false,
+    "SitzPlaetze": 5,
+    "Raeder": 4,
+    "Leistung": 200,
+    "Bauhjahr": 2019,
+    "Preis": 100,
+    "standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Aalen",
+      "XKoord": 48.837849,
+      "YKoord": 10.096976,
+      "Fahrzeuge": null
+    },
+    "Hersteller": "Audi",
+    "Kraftstoff": 1,
+    "Verfuegbar": true,
+    "Kundenname": null,
+    "AusgeliehenUM": "0001-01-01T00:00:00",
+    "AusgeliehenBIS": 0,
+    "WiederVerfuegbar": 0,
+    "FahrzeugID": "NL3D"
   }
 ]

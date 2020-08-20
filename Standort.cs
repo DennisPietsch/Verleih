@@ -10,8 +10,6 @@ namespace AutoKauf
 {
     public class Standort
     {
-        string speicherdatei = "jsonListeStandort";
-
         private Fahrzeug fahrzeug;
 
         public List<Standort> Koordinaten = new List<Standort>();
@@ -108,45 +106,31 @@ namespace AutoKauf
             Koordinaten.Add(new Standort("Heidenheim", 48.689539, 10.161213));
         }
 
-        public void NeuenStandortHinzufuegen()
+        public static Standort NeuenStandortHinzufuegen(List<Standort> standortListe)
         {
-            Console.WriteLine("Bitte geben sie die Stadt ein in der ihr Fahrzeug steht");
+            Console.Write("Bitte geben sie die Stadt ein in der ihr Fahrzeug steht ");
             string city = Console.ReadLine();
 
-            foreach (var item in Koordinaten)
+            foreach (var item in standortListe)
             {
                 if (city == item.Stadt)
                 {
                     Console.WriteLine("Der Standort wurde eingetragen");
-                    item.XKoord = XKoord;
-                }
-
-                else
-                {
-                    Console.WriteLine("Bitte geben sie ");
+                    return item;
                 }
             }
-        }
+            
+            Console.Write("Bitte geben sie den Breitengrad der Stadt an ");
+            double Breitengrad = Convert.ToDouble(Console.ReadLine());
+            Console.Clear();
 
-        public void KundeInJSONListeSpeichern()
-        {
-            string jsonstring;
-            jsonstring = JsonConvert.SerializeObject(Koordinaten, Formatting.Indented, new JsonSerializerSettings
-            {
-                TypeNameHandling = TypeNameHandling.Auto
-            });
+            Console.Write("Bitte geben sie den Längengrad der Stadt an ");
+            double Laengengrad = Convert.ToDouble(Console.ReadLine());
+            Console.Clear();
 
-            File.WriteAllText(speicherdatei, jsonstring);
-        }
+            Standort standort = new Standort(city, Breitengrad, Laengengrad);
 
-        public void KundeAusJSONListeLaden()
-        {
-            string jsonstring;
-            jsonstring = File.ReadAllText(speicherdatei);
-            Koordinaten.AddRange(JsonConvert.DeserializeObject<List<Standort>>(jsonstring, new JsonSerializerSettings
-            {
-                TypeNameHandling = TypeNameHandling.Auto
-            }));
+            return standort;
         }
     }
 }

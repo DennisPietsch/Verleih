@@ -9,6 +9,7 @@ namespace AutoKauf
     {
         const string speicherdatei = "jsonliste";
         const string speicherdateikunde = "jsonlistekunde";
+        const string speicherdateistandorte = "jsonlistestandorte";
 
         public static void Main(string[] args)
         {
@@ -40,10 +41,20 @@ namespace AutoKauf
                 verleih.kundenliste.AddRange(DemoDatenSaetze.Kunden());
             }
 
+            if (File.Exists(speicherdateistandorte))
+            {
+                verleih.StandorteAusJSONListeLaden();
+            }
+
+            else
+            {
+                verleih.standortListe.AddRange(DemoDatenSaetze.StandorteSpeichern());
+            }
             //verleih.kundenliste.AddRange(DatenSpeichern.KundenListeSpeichern());
 
             do
             {
+                Console.Clear();
                 Console.WriteLine("Was möchten sie machen?");
                 Console.WriteLine("[1] Fahrzeug ausleihen");
                 Console.WriteLine("[2] Fahrzeug hinzufügen");

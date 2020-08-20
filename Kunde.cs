@@ -20,6 +20,7 @@ namespace AutoKauf
         private Standort standort;
         private Fahrzeug vermietetesauto;
         private string email;
+        private int guthaben;
 
         public string Name
         {
@@ -49,6 +50,12 @@ namespace AutoKauf
         {
             get { return email; }
             set { email = value; }
+        }
+
+        public int Guthaben
+        {
+            get { return guthaben; }
+            set { guthaben = value; }
         }
         
         public Kunde NeuenKundenHinzufuegen()
@@ -121,12 +128,12 @@ namespace AutoKauf
             Console.Clear();
         }
 
-        public Kunde(string email, string name, int alter, string standort)
+        public Kunde(string email, string name, int alter, Standort standort)
         {
             EMail = email;
             Name = name;
             Alter = alter;
-            Standort.Stadt = standort;
+            standort = new Standort();
         }
 
         public Kunde()
