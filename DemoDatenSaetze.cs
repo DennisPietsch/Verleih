@@ -15,7 +15,7 @@ namespace AutoKauf
             List<Fahrzeug> FahrzeugListe = new List<Fahrzeug>();
 
             //Auto 1
-            fahrzeugAUTO.Preis = 7500;
+            fahrzeugAUTO.Preis = 9.20;
             fahrzeugAUTO.Hersteller = "Audi";
             fahrzeugAUTO.Raeder = 4;
             fahrzeugAUTO.Kraftstoff = Energie.Benzin;
@@ -24,15 +24,14 @@ namespace AutoKauf
             fahrzeugAUTO.standort = new Standort("Stuttgart", 48.778613, 9.180573);
             fahrzeugAUTO.Bauhjahr = 2012;
             fahrzeugAUTO.AnhängerKupplung = true;
-            fahrzeugAUTO.Verfuegbar = false;
-            fahrzeugAUTO.Kundenname = "Thomas";
+            fahrzeugAUTO.Verfuegbar = true;
             fahrzeugAUTO.FahrzeugID = "AAAA";
 
             FahrzeugListe.Add(fahrzeugAUTO);
 
             //Auto2 
             fahrzeugAUTO = new Auto();
-            fahrzeugAUTO.Preis = 15000;
+            fahrzeugAUTO.Preis = 6;
             fahrzeugAUTO.Hersteller = "VW";
             fahrzeugAUTO.Raeder = 4;
             fahrzeugAUTO.Kraftstoff = Energie.Strom;
@@ -48,7 +47,7 @@ namespace AutoKauf
 
             //Auto3
             fahrzeugAUTO = new Auto();
-            fahrzeugAUTO.Preis = 2350;
+            fahrzeugAUTO.Preis = 4.5;
             fahrzeugAUTO.Hersteller = "Mazda";
             fahrzeugAUTO.Raeder = 4;
             fahrzeugAUTO.Kraftstoff = Energie.Benzin;
@@ -64,7 +63,7 @@ namespace AutoKauf
 
             //Auto4
             fahrzeugAUTO = new Auto();
-            fahrzeugAUTO.Preis = 22500;
+            fahrzeugAUTO.Preis = 7;
             fahrzeugAUTO.Hersteller = "Mercedes";
             fahrzeugAUTO.Raeder = 4;
             fahrzeugAUTO.Kraftstoff = Energie.Wasserstoff;
@@ -80,7 +79,7 @@ namespace AutoKauf
 
             //Auto5
             fahrzeugAUTO = new Auto();
-            fahrzeugAUTO.Preis = 17800;
+            fahrzeugAUTO.Preis = 6;
             fahrzeugAUTO.Hersteller = "BMW";
             fahrzeugAUTO.Raeder = 4;
             fahrzeugAUTO.Kraftstoff = Energie.Erdgas;
@@ -96,7 +95,7 @@ namespace AutoKauf
 
             //LKW1
             fahrzeugLKW = new LKW();
-            fahrzeugLKW.Preis = 53000;
+            fahrzeugLKW.Preis = 12.5;
             fahrzeugLKW.Hersteller = "Scania";
             fahrzeugLKW.Raeder = 6;
             fahrzeugLKW.Kraftstoff = Energie.Benzin;
@@ -112,7 +111,7 @@ namespace AutoKauf
 
             //LKW2
             fahrzeugLKW = new LKW();
-            fahrzeugLKW.Preis = 43290;
+            fahrzeugLKW.Preis = 11.3;
             fahrzeugLKW.Hersteller = "MAN";
             fahrzeugLKW.Raeder = 8;
             fahrzeugLKW.Kraftstoff = Energie.LKWDiesel;
@@ -128,7 +127,7 @@ namespace AutoKauf
 
             //LKW3
             fahrzeugLKW = new LKW();
-            fahrzeugLKW.Preis = 63000;
+            fahrzeugLKW.Preis = 12;
             fahrzeugLKW.Hersteller = "Mercedes";
             fahrzeugLKW.Raeder = 6;
             fahrzeugLKW.Kraftstoff = Energie.LKWDiesel;
@@ -144,7 +143,7 @@ namespace AutoKauf
 
             //LKW4
             fahrzeugLKW = new LKW();
-            fahrzeugLKW.Preis = 32500;
+            fahrzeugLKW.Preis = 12.5;
             fahrzeugLKW.Hersteller = "Volvo";
             fahrzeugLKW.Raeder = 6;
             fahrzeugLKW.Kraftstoff = Energie.Erdgas;
@@ -160,7 +159,7 @@ namespace AutoKauf
 
             //Motorrad 1
             fahrzeugMOTORRAD = new Motorrad();
-            fahrzeugMOTORRAD.Preis = 30000;
+            fahrzeugMOTORRAD.Preis = 3;
             fahrzeugMOTORRAD.Hersteller = "Ducati";
             fahrzeugMOTORRAD.Raeder = 2;
             fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
@@ -176,7 +175,7 @@ namespace AutoKauf
 
             //Motorrad 2
             fahrzeugMOTORRAD = new Motorrad();
-            fahrzeugMOTORRAD.Preis = 12000;
+            fahrzeugMOTORRAD.Preis = 3.5;
             fahrzeugMOTORRAD.Hersteller = "Kawasaki";
             fahrzeugMOTORRAD.Raeder = 2;
             fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
@@ -192,7 +191,7 @@ namespace AutoKauf
 
             //Motorrad 3
             fahrzeugMOTORRAD = new Motorrad();
-            fahrzeugMOTORRAD.Preis = 30000;
+            fahrzeugMOTORRAD.Preis = 3;
             fahrzeugMOTORRAD.Hersteller = "Ducati";
             fahrzeugMOTORRAD.Raeder = 2;
             fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
@@ -208,7 +207,7 @@ namespace AutoKauf
 
             //Motorrad 4
             fahrzeugMOTORRAD = new Motorrad();
-            fahrzeugMOTORRAD.Preis = 3750;
+            fahrzeugMOTORRAD.Preis = 2.5;
             fahrzeugMOTORRAD.Hersteller = "KTM";
             fahrzeugMOTORRAD.Raeder = 2;
             fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;
@@ -224,7 +223,7 @@ namespace AutoKauf
 
             //Motorrad 5
             fahrzeugMOTORRAD = new Motorrad();
-            fahrzeugMOTORRAD.Preis = 14300;
+            fahrzeugMOTORRAD.Preis = 2;
             fahrzeugMOTORRAD.Hersteller = "Ural";
             fahrzeugMOTORRAD.Raeder = 2;
             fahrzeugMOTORRAD.Kraftstoff = Energie.Benzin;

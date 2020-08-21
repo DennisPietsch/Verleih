@@ -6,7 +6,7 @@
     "Standort": null,
     "VermietetesAuto": null,
     "EMail": "Stefan.Test@gmail.com",
-    "Guthaben": 0
+    "Guthaben": 0.0
   },
   {
     "speicherdateikunde": "jsonlistekunde",
@@ -15,7 +15,7 @@
     "Standort": null,
     "VermietetesAuto": null,
     "EMail": "Max.Mustermann@gmx.de",
-    "Guthaben": 0
+    "Guthaben": 0.0
   },
   {
     "speicherdateikunde": "jsonlistekunde",
@@ -24,6 +24,6 @@
     "Standort": null,
     "VermietetesAuto": null,
     "EMail": "ThomasFriedlich1982@email.com",
-    "Guthaben": 0
+    "Guthaben": 0.0
   }
 ]

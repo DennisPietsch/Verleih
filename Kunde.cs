@@ -20,7 +20,7 @@ namespace AutoKauf
         private Standort standort;
         private Fahrzeug vermietetesauto;
         private string email;
-        private int guthaben;
+        private double guthaben;
 
         public string Name
         {
@@ -52,45 +52,71 @@ namespace AutoKauf
             set { email = value; }
         }
 
-        public int Guthaben
+        public double Guthaben
         {
             get { return guthaben; }
             set { guthaben = value; }
         }
         
-        public Kunde NeuenKundenHinzufuegen()
+        public Kunde NeuenKundenHinzufuegen(List<Standort> standortliste, List<Kunde> kundenliste)
         {
             Kunde kunde = new Kunde();
 
             Console.WriteLine("Bitte geben sie ihre E-Mail Addresse ein: ");
-            kunde.email = Console.ReadLine();
+            string Email = Console.ReadLine();
             Console.Clear();
             
             Console.Write("Bitte geben sie ihren Namen ein  ");
-            kunde.name = Console.ReadLine();
+            string Name = Console.ReadLine();
             Console.Clear();
 
             Console.Write("Bitte geben sie ihr Alter ein  ");
-            kunde.alter = Convert.ToInt32(Console.ReadLine());
+            int Alter = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
 
             Console.Write("Bitte geben sie ihren Standort ein  ");
-            kunde.standort.Stadt = Console.ReadLine();
+            string Stadt = Console.ReadLine();
             Console.Clear();
 
+            foreach (var item in standortliste)
+            {
+                if (item.Stadt == Stadt)
+                {
+                    kundenliste.Add(new Kunde(Email, Name, Alter, Standort));
+                    break;
+                }
+
+                else
+                {
+                    Console.Clear();
+                    Console.Write("Bitte geben sie den Breitengrad der Stadt ein: ");
+                    double Breitengrad = Convert.ToDouble(Console.ReadLine());
+                    Console.Clear();
+
+                    Console.Write("Bitte geben sie den Längengrad der Stadt ein: ");
+                    double Laengengrad = Convert.ToDouble(Console.ReadLine());
+                    Console.Clear();
+
+                    kundenliste.Add(new Kunde(Email, Name, Alter, new Standort(Stadt, Breitengrad, Laengengrad)));
+                }
+            }
+            Console.Clear();
             Console.WriteLine("Ihre Daten wurden gespeichert");
+
+            kunde.Guthaben = 100;
+
             Thread.Sleep(3000);
             Console.Clear();
             return kunde;
         }
 
-        public void DatenHinzufuegen(string name, int alter, string standort, List<Kunde> Kunden)
+        public void DatenHinzufuegen(string name, int alter, Standort standort, List<Kunde> Kunden)
         {
             Kunde kunde = new Kunde();
 
             kunde.name = name;
             kunde.alter = alter;
-            kunde.standort.Stadt = standort;
+            kunde.standort = standort;
 
             Kunden.Add(kunde);
         }
@@ -103,9 +129,11 @@ namespace AutoKauf
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Kunde {0}", counter);
                 Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine("\n" + item.name);
-                Console.WriteLine(item.standort);
-                Console.WriteLine(item.alter);
+                Console.WriteLine("\nName: " + item.name);
+                Console.WriteLine("EMail: " + item.email);
+                Console.WriteLine("Standort: " + item.standort.Stadt);
+                Console.WriteLine("Alter: " + item.alter);
+                Console.WriteLine("Guthaben: " + item.guthaben);
                 if (item.vermietetesauto == null)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -142,12 +170,59 @@ namespace AutoKauf
 
         public void wiederverfuegbar()
         {
-            int AusgeliehenBIS = VermietetesAuto.AusgeliehenBIS;
+            double AusgeliehenBIS = VermietetesAuto.AusgeliehenBIS;
             DateTime AusgeliehenUM = VermietetesAuto.AusgeliehenUM;
 
             if (AusgeliehenUM.AddMinutes(AusgeliehenBIS) <= DateTime.Now)
             {
                 vermietetesauto = null;
+            }
+        }
+
+        public void GuthabenAufladen(List<Standort> standortliste, List<Kunde> kundenliste)
+        {
+            ConsoleKeyInfo cki;
+            Console.Clear();
+            Console.Write("Bitte geben sie ihre Email an: ");
+            string email = Console.ReadLine();
+
+            foreach (var kunde in kundenliste)
+            {
+                if (kunde.EMail == email)
+                {
+                    Console.Write("Wie viel wollen sie aufladen: ");
+                    double aufladen = Convert.ToDouble(Console.ReadLine());
+                    Console.Clear();
+
+                    kunde.Guthaben = kunde.Guthaben + aufladen;
+                }
+
+                else
+                {
+                    do
+                    {
+                        Console.WriteLine("EMail ist nich in der Datenbank");
+                        Console.WriteLine("Möchten sie sich ein Konto erstellen? [j] [n]");
+
+                        cki = Console.ReadKey();
+
+                        switch (cki.KeyChar)
+                        {
+                            case 'j':
+                                NeuenKundenHinzufuegen(standortliste, kundenliste);
+                                return;
+
+                            case 'n':
+                                return;
+
+                            default:
+                                Console.WriteLine("Keine mögliche Auswahl");
+                                Thread.Sleep(2000);
+                                break;
+                        }
+
+                    } while (true);
+                }
             }
         }
     }

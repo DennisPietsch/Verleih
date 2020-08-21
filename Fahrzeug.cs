@@ -11,13 +11,13 @@ namespace AutoKauf
         private int raeder;
         private int leistung;
         private int bauhjahr;
-        private int preis;
+        private double preis;
         private Standort standortle;
         private string hersteller;
         private Energie kraftstoff;
         private bool verfuegbar;
         private string kundenname;
-        private int ausgeliehenBIS;
+        private double ausgeliehenBIS;
         private DateTime ausgeliehenUM;
         private int wiederVerfuegbar;
         private string fahrzeugID;
@@ -46,7 +46,7 @@ namespace AutoKauf
             set { bauhjahr = value; }
         }
 
-        public int Preis
+        public double Preis
         {
             get { return preis; }
             set { preis = value; }
@@ -88,7 +88,7 @@ namespace AutoKauf
             set { ausgeliehenUM = value; }
         }
 
-        public int AusgeliehenBIS
+        public double AusgeliehenBIS
         {
             get { return ausgeliehenBIS; }
             set { ausgeliehenBIS = value; }

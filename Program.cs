@@ -62,6 +62,7 @@ namespace AutoKauf
                 Console.WriteLine("[4] Verfügbare Fahrzeuge in der Umgebung checken ");
                 Console.WriteLine("[5] Als Kunde eintragen");
                 Console.WriteLine("[6] Kunden auslesen");
+                Console.WriteLine("[7] Guthaben aufladen");
                 Console.WriteLine("[ESC] EXIT");
 
                 cki = Console.ReadKey();
@@ -92,7 +93,7 @@ namespace AutoKauf
 
                     case ConsoleKey.D5:
                     case ConsoleKey.NumPad5:
-                        verleih.kundenliste.Add(kunde.NeuenKundenHinzufuegen());
+                        verleih.kundenliste.Add(kunde.NeuenKundenHinzufuegen(verleih.standortListe, verleih.kundenliste));
                         break;
 
                     case ConsoleKey.D6:
@@ -100,9 +101,15 @@ namespace AutoKauf
                         kunde.KundenListeAuslesen(verleih.kundenliste);
                         break;
 
+                    case ConsoleKey.D7:
+                    case ConsoleKey.NumPad7:
+                        kunde.GuthabenAufladen(verleih.standortListe, verleih.kundenliste);
+                        break;
+
                     case ConsoleKey.Escape:
                         verleih.AutoInJSONListeSpeichern();
                         verleih.KundeInJSONListeSpeichern();
+                        verleih.StandorteInJSONListeSpeichern();
                         Environment.Exit(0);
                         break; 
 

@@ -743,11 +743,21 @@ namespace AutoKauf
                         fahrzeug.Kundenname = item.Name;
                         fahrzeug.Verfuegbar = false;
 
+                        if (item.Guthaben - fahrzeug.Preis < 10)
+                        {
+                            GuthabenAufladen(item, fahrzeug);
+                        }
+
+                        else
+                        {
+                            item.Guthaben = item.Guthaben - (fahrzeug.Preis * fahrzeug.AusgeliehenBIS);
+                        }
+
                         item.VermietetesAuto = fahrzeug;
                         return;
                     }
                 }
-
+                Console.Clear();
                 Console.WriteLine("Ihre Email-Addresse ist nicht in unserem System");
                 Console.WriteLine("Möchten sie sich ein Kundenkonto erstellen? [j] [n]");
 
@@ -757,7 +767,7 @@ namespace AutoKauf
 
                 if (cki.KeyChar == 'j')
                 {
-                    kundenliste.Add(kunde.NeuenKundenHinzufuegen());
+                    kundenliste.Add(kunde.NeuenKundenHinzufuegen(standortListe, kundenliste));
                     fahrzeug.Kundenname = kunde.Name;
                     fahrzeug.Verfuegbar = false;
                 }
@@ -765,6 +775,7 @@ namespace AutoKauf
                 {
                     Console.WriteLine("Sie können kein Auto ohne Konto leihen ");
                     Thread.Sleep(3000);
+                    KundenListeUeberpruefen(fahrzeug);
                 }
             }
 
@@ -776,7 +787,10 @@ namespace AutoKauf
                 Console.Clear();
                 if (cki.KeyChar == 'j')
                 {
-                    kundenliste.Add(kunde.NeuenKundenHinzufuegen());
+                    kundenliste.Add(kunde.NeuenKundenHinzufuegen(standortListe, kundenliste));
+
+                    kunde.Guthaben = kunde.Guthaben - (fahrzeug.Preis * fahrzeug.AusgeliehenBIS);
+
                     fahrzeug.Kundenname = kunde.Name;
                     fahrzeug.Verfuegbar = false;
                 }
@@ -784,7 +798,7 @@ namespace AutoKauf
                 {
                     Console.WriteLine("Sie können kein Auto ohne Konto leihen ");
                     Thread.Sleep(3000);
-
+                    KundenListeUeberpruefen(fahrzeug);
                 }
             }
         }
@@ -855,7 +869,7 @@ namespace AutoKauf
         public string RandomString()
         {
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-            var stringChars = new char[4];
+            var stringChars = new char[4 ];
             var random = new Random();
 
             for (int i = 0; i < stringChars.Length; i++)
@@ -865,6 +879,63 @@ namespace AutoKauf
             var finalString = new String(stringChars);
 
             return finalString;
+        }
+
+        public void GuthabenAufladen(Kunde kunde, Fahrzeug fahrzeug)
+        {
+            ConsoleKeyInfo cki;
+
+            kunde.Guthaben = kunde.Guthaben - (fahrzeug.Preis * fahrzeug.AusgeliehenBIS);
+
+            if (kunde.Guthaben < 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Ihr Guthaben ist aufgebraucht: ");
+                Console.WriteLine("Sie müssen Geld aufladen ");
+                Console.WriteLine("\nGeld aufladen? [j] [n]");
+                cki = Console.ReadKey();
+                Console.Clear();
+
+                switch (cki.KeyChar)
+                {
+                    case 'j':
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Aktuelles Guthaben: " + kunde.Guthaben);
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        Console.Write("Betrag eingeben: ");
+
+                        double aufladen = Convert.ToDouble(Console.ReadLine());
+                        Console.Clear();
+
+                        if (kunde.Guthaben + aufladen >= 0)
+                        {
+                            kunde.Guthaben = kunde.Guthaben + aufladen;
+                            return;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Guthaben ist zu niedrig... neu eingeben");
+                            Thread.Sleep(3000);
+
+                            GuthabenAufladen(kunde, fahrzeug);
+                        }
+                        break;
+
+                    case 'n':
+                        Console.WriteLine("Vorgang wird abgebrochen: ");
+                        Thread.Sleep(3000);
+                        Console.Clear();
+                        KundenListeUeberpruefen(fahrzeug);
+                        break;
+
+                    default:
+                        Console.WriteLine("Keine Mögliche Auswahl ");
+                        Thread.Sleep(3000);
+                        GuthabenAufladen(kunde, fahrzeug);
+                        break;
+                }
+            }
         }
     }
 }

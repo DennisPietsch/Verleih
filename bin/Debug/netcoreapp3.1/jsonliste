@@ -6,7 +6,7 @@
     "Raeder": 4,
     "Leistung": 170,
     "Bauhjahr": 2012,
-    "Preis": 7500,
+    "Preis": 9.2,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -21,7 +21,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "AAAA"
   },
@@ -32,7 +32,7 @@
     "Raeder": 4,
     "Leistung": 150,
     "Bauhjahr": 2019,
-    "Preis": 15000,
+    "Preis": 6.0,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -47,7 +47,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "FBH1"
   },
@@ -58,7 +58,7 @@
     "Raeder": 4,
     "Leistung": 250,
     "Bauhjahr": 2008,
-    "Preis": 2350,
+    "Preis": 4.5,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -73,7 +73,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "KJS2"
   },
@@ -84,7 +84,7 @@
     "Raeder": 4,
     "Leistung": 340,
     "Bauhjahr": 2016,
-    "Preis": 22500,
+    "Preis": 7.0,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -99,7 +99,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "WIEN"
   },
@@ -110,7 +110,7 @@
     "Raeder": 4,
     "Leistung": 250,
     "Bauhjahr": 2019,
-    "Preis": 17800,
+    "Preis": 6.0,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -125,7 +125,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "2IE9"
   },
@@ -136,7 +136,7 @@
     "Raeder": 6,
     "Leistung": 520,
     "Bauhjahr": 2018,
-    "Preis": 53000,
+    "Preis": 12.5,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -151,7 +151,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "8UWB"
   },
@@ -162,7 +162,7 @@
     "Raeder": 8,
     "Leistung": 430,
     "Bauhjahr": 2012,
-    "Preis": 43290,
+    "Preis": 11.3,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -177,7 +177,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "BSOW"
   },
@@ -188,7 +188,7 @@
     "Raeder": 6,
     "Leistung": 600,
     "Bauhjahr": 2020,
-    "Preis": 63000,
+    "Preis": 12.0,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -203,7 +203,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "92JH"
   },
@@ -214,7 +214,7 @@
     "Raeder": 6,
     "Leistung": 420,
     "Bauhjahr": 2018,
-    "Preis": 32500,
+    "Preis": 12.5,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -229,7 +229,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "POWN"
   },
@@ -240,7 +240,7 @@
     "Raeder": 2,
     "Leistung": 210,
     "Bauhjahr": 2019,
-    "Preis": 30000,
+    "Preis": 3.0,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -255,7 +255,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "6JHS"
   },
@@ -266,7 +266,7 @@
     "Raeder": 2,
     "Leistung": 170,
     "Bauhjahr": 2016,
-    "Preis": 12000,
+    "Preis": 3.5,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -281,7 +281,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "82JS"
   },
@@ -292,7 +292,7 @@
     "Raeder": 2,
     "Leistung": 210,
     "Bauhjahr": 2019,
-    "Preis": 30000,
+    "Preis": 3.0,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -307,7 +307,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "7JSH"
   },
@@ -318,7 +318,7 @@
     "Raeder": 2,
     "Leistung": 15,
     "Bauhjahr": 2019,
-    "Preis": 3750,
+    "Preis": 2.5,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -333,7 +333,7 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "4UHG"
   },
@@ -344,7 +344,7 @@
     "Raeder": 2,
     "Leistung": 80,
     "Bauhjahr": 2012,
-    "Preis": 14300,
+    "Preis": 2.0,
     "standort": {
       "Koordinaten": [],
       "LaengeLaengenGrad": 71.44,
@@ -359,34 +359,8 @@
     "Verfuegbar": true,
     "Kundenname": null,
     "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
+    "AusgeliehenBIS": 0.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "8PWN"
-  },
-  {
-    "$type": "AutoKauf.Auto, AutoKauf",
-    "AnhängerKupplung": false,
-    "SitzPlaetze": 5,
-    "Raeder": 4,
-    "Leistung": 200,
-    "Bauhjahr": 2019,
-    "Preis": 100,
-    "standort": {
-      "Koordinaten": [],
-      "LaengeLaengenGrad": 71.44,
-      "LaengeBreitenGrad": 111.13,
-      "Stadt": "Aalen",
-      "XKoord": 48.837849,
-      "YKoord": 10.096976,
-      "Fahrzeuge": null
-    },
-    "Hersteller": "Audi",
-    "Kraftstoff": 1,
-    "Verfuegbar": true,
-    "Kundenname": null,
-    "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0,
-    "WiederVerfuegbar": 0,
-    "FahrzeugID": "NL3D"
   }
 ]
