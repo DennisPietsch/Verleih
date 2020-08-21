@@ -59,17 +59,17 @@ namespace AutoKauf
 
                             Thread.Sleep(5000);
                             Console.Clear();
+
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Fahrzeug ist nich Verfügabr ");
+                            Thread.Sleep(3000);
+                            FahrzeugLeihen();
                         }
                     }
-
-                    else
-                    {
-                        Console.WriteLine("Fahrzeug ist nich Verfügabr ");
-                        Thread.Sleep(3000);
-                        FahrzeugLeihen();
-                    }
                 }
-
             }
 
             else

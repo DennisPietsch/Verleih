@@ -3,7 +3,15 @@
     "speicherdateikunde": "jsonlistekunde",
     "Name": "Stefan",
     "Alter": 29,
-    "Standort": null,
+    "Standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Heubach",
+      "XKoord": 48.793244,
+      "YKoord": 9.93178,
+      "Fahrzeuge": null
+    },
     "VermietetesAuto": null,
     "EMail": "Stefan.Test@gmail.com",
     "Guthaben": 0.0
@@ -12,7 +20,15 @@
     "speicherdateikunde": "jsonlistekunde",
     "Name": "Max",
     "Alter": 44,
-    "Standort": null,
+    "Standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Düsseldorf",
+      "XKoord": 51.227755,
+      "YKoord": 6.773522,
+      "Fahrzeuge": null
+    },
     "VermietetesAuto": null,
     "EMail": "Max.Mustermann@gmx.de",
     "Guthaben": 0.0
@@ -21,9 +37,34 @@
     "speicherdateikunde": "jsonlistekunde",
     "Name": "Thoams",
     "Alter": 32,
-    "Standort": null,
+    "Standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Stuttgart",
+      "XKoord": 48.778613,
+      "YKoord": 9.180573,
+      "Fahrzeuge": null
+    },
     "VermietetesAuto": null,
     "EMail": "ThomasFriedlich1982@email.com",
     "Guthaben": 0.0
+  },
+  {
+    "speicherdateikunde": "jsonlistekunde",
+    "Name": "Dennis",
+    "Alter": 18,
+    "Standort": {
+      "Koordinaten": [],
+      "LaengeLaengenGrad": 71.44,
+      "LaengeBreitenGrad": 111.13,
+      "Stadt": "Aalen",
+      "XKoord": 48.837849,
+      "YKoord": 10.096976,
+      "Fahrzeuge": null
+    },
+    "VermietetesAuto": null,
+    "EMail": "dennis@test.com",
+    "Guthaben": 100.0
   }
 ]

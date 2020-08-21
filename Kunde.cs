@@ -82,26 +82,30 @@ namespace AutoKauf
             {
                 if (item.Stadt == Stadt)
                 {
-                    kundenliste.Add(new Kunde(Email, Name, Alter, Standort));
+                    kunde.Standort = item;
                     break;
                 }
-
-                else
-                {
-                    Console.Clear();
-                    Console.Write("Bitte geben sie den Breitengrad der Stadt ein: ");
-                    double Breitengrad = Convert.ToDouble(Console.ReadLine());
-                    Console.Clear();
-
-                    Console.Write("Bitte geben sie den Längengrad der Stadt ein: ");
-                    double Laengengrad = Convert.ToDouble(Console.ReadLine());
-                    Console.Clear();
-
-                    kundenliste.Add(new Kunde(Email, Name, Alter, new Standort(Stadt, Breitengrad, Laengengrad)));
-                }
             }
+
+            if (kunde.Standort == null)
+            {
+                Console.Write("Bitte geben sie den Breitengrad der Stadt ein ");
+                double Breitengrad = Convert.ToDouble(Console.ReadLine());
+                Console.Clear();
+
+                Console.Write("Bitte geben sie den Längengrad der Stadt ein ");
+                double Laengengrad = Convert.ToDouble(Console.ReadLine());
+                Console.Clear();
+
+                kunde.Standort = new Standort(Stadt, Breitengrad, Laengengrad);
+            }
+
             Console.Clear();
             Console.WriteLine("Ihre Daten wurden gespeichert");
+
+            kunde.EMail = Email;
+            kunde.Name = Name;
+            kunde.Alter = Alter;
 
             kunde.Guthaben = 100;
 
@@ -123,12 +127,8 @@ namespace AutoKauf
 
         public void KundenListeAuslesen(List<Kunde> kundenliste)
         {
-            int counter = 1;
             foreach (var item in kundenliste)
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("Kunde {0}", counter);
-                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("\nName: " + item.name);
                 Console.WriteLine("EMail: " + item.email);
                 Console.WriteLine("Standort: " + item.standort.Stadt);
@@ -148,8 +148,6 @@ namespace AutoKauf
                     item.VermietetesAuto.DetailsAnschauen();
                     item.wiederverfuegbar();
                 }
-
-                counter++;
             }
 
             Console.ReadKey();
@@ -161,7 +159,7 @@ namespace AutoKauf
             EMail = email;
             Name = name;
             Alter = alter;
-            standort = new Standort();
+            Standort = standort;
         }
 
         public Kunde()
@@ -196,34 +194,31 @@ namespace AutoKauf
 
                     kunde.Guthaben = kunde.Guthaben + aufladen;
                 }
-
-                else
-                {
-                    do
-                    {
-                        Console.WriteLine("EMail ist nich in der Datenbank");
-                        Console.WriteLine("Möchten sie sich ein Konto erstellen? [j] [n]");
-
-                        cki = Console.ReadKey();
-
-                        switch (cki.KeyChar)
-                        {
-                            case 'j':
-                                NeuenKundenHinzufuegen(standortliste, kundenliste);
-                                return;
-
-                            case 'n':
-                                return;
-
-                            default:
-                                Console.WriteLine("Keine mögliche Auswahl");
-                                Thread.Sleep(2000);
-                                break;
-                        }
-
-                    } while (true);
-                }
             }
+
+            do
+            {
+                Console.WriteLine("EMail ist nich in der Datenbank");
+                Console.WriteLine("Möchten sie sich ein Konto erstellen? [j] [n]");
+
+                cki = Console.ReadKey();
+
+                switch (cki.KeyChar)
+                {
+                    case 'j':
+                        NeuenKundenHinzufuegen(standortliste, kundenliste);
+                        return;
+
+                    case 'n':
+                        return;
+
+                    default:
+                        Console.WriteLine("Keine mögliche Auswahl");
+                        Thread.Sleep(2000);
+                        break;
+                }
+
+            } while (true);
         }
     }
 }

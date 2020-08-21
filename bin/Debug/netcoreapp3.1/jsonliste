@@ -20,8 +20,8 @@
     "Kraftstoff": 1,
     "Verfuegbar": true,
     "Kundenname": null,
-    "AusgeliehenUM": "0001-01-01T00:00:00",
-    "AusgeliehenBIS": 0.0,
+    "AusgeliehenUM": "2020-08-21T14:03:39.9571472+02:00",
+    "AusgeliehenBIS": 2.0,
     "WiederVerfuegbar": 0,
     "FahrzeugID": "AAAA"
   },
