@@ -743,12 +743,7 @@ namespace AutoKauf
                         fahrzeug.Kundenname = item.Name;
                         fahrzeug.Verfuegbar = false;
 
-                        if (item.Guthaben - fahrzeug.Preis < 10)
-                        {
-                            GuthabenAufladen(item, fahrzeug);
-                        }
-
-                        else
+                        if(item.Guthaben <= 0)
                         {
                             item.Guthaben = item.Guthaben - (fahrzeug.Preis * fahrzeug.AusgeliehenBIS);
                         }

@@ -134,7 +134,6 @@ namespace AutoKauf
 
         public void DetailsAnschauen()
         {
-            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("FahrzeugID: " + FahrzeugID);
             Console.ForegroundColor = ConsoleColor.Gray;
